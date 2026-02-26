@@ -36,12 +36,6 @@ export function Navbar() {
             style={{ color: 'var(--muted-text)' }}>
             Docs
           </a>
-          <a href="https://api.arkeapi.com" target="_blank" rel="noopener noreferrer"
-            className="text-sm transition-colors hidden md:block"
-            style={{ color: 'var(--muted-text)' }}>
-            Dashboard
-          </a>
-
           {/* Language selector */}
           <div className="relative">
             <button
