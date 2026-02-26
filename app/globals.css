@@ -7,14 +7,11 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-brand: var(--brand);
-  --color-brand-hover: var(--brand-hover);
-  --color-muted-text: var(--muted-text);
+  --color-brand: #ff3d00;
+  --color-brand-hover: #E56830;
+  --color-surface: var(--surface);
   --color-border: var(--border);
-  --color-card: var(--card);
-  --font-sans: var(--font-inter);
-  --font-mono: var(--font-mono-stack);
-
+  --color-muted-text: var(--muted-text);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
@@ -28,8 +25,8 @@
   --color-ring: var(--ring);
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
+  --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
-
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -37,18 +34,13 @@
 
 :root {
   --radius: 0.375rem;
-
-  /* ArkeAPI Design System */
   --background: #F0EFE9;
   --foreground: #0A0A0A;
-  --brand: #F4793E;
-  --brand-hover: #E56830;
-  --muted-text: #6B6B6B;
+  --surface: #FFFFFF;
   --border: #D4D3CC;
+  --muted-text: #6B6B6B;
   --card: #FFFFFF;
   --card-foreground: #0A0A0A;
-
-  /* shadcn compatibility */
   --primary: #0A0A0A;
   --primary-foreground: #F0EFE9;
   --secondary: #E8E8E4;
@@ -59,9 +51,32 @@
   --accent-foreground: #0A0A0A;
   --destructive: oklch(0.577 0.245 27.325);
   --input: #D4D3CC;
-  --ring: #F4793E;
+  --ring: #ff3d00;
   --popover: #FFFFFF;
   --popover-foreground: #0A0A0A;
+}
+
+.dark {
+  --background: #0F0F0D;
+  --foreground: #F0EFE9;
+  --surface: #1A1A16;
+  --border: #2A2A24;
+  --muted-text: #8A8A80;
+  --card: #1A1A16;
+  --card-foreground: #F0EFE9;
+  --primary: #F0EFE9;
+  --primary-foreground: #0F0F0D;
+  --secondary: #1A1A16;
+  --secondary-foreground: #F0EFE9;
+  --muted: #1A1A16;
+  --muted-foreground: #8A8A80;
+  --accent: #1A1A16;
+  --accent-foreground: #F0EFE9;
+  --destructive: oklch(0.704 0.191 22.216);
+  --input: #2A2A24;
+  --ring: #ff3d00;
+  --popover: #1A1A16;
+  --popover-foreground: #F0EFE9;
 }
 
 @layer base {
@@ -69,7 +84,8 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    background-color: var(--background);
+    color: var(--foreground);
     font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
   }

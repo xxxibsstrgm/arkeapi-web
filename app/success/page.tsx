@@ -10,9 +10,9 @@ export default function SuccessPage() {
       <div className="max-w-md w-full text-center">
         <div
           className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-8"
-          style={{ backgroundColor: 'rgba(244, 121, 62, 0.1)' }}
+          style={{ backgroundColor: 'rgba(255, 61, 0, 0.1)' }}
         >
-          <CheckCircle className="w-8 h-8" style={{ color: '#F4793E' }} />
+          <CheckCircle className="w-8 h-8" style={{ color: '#ff3d00' }} />
         </div>
 
         <h1
@@ -48,7 +48,7 @@ export default function SuccessPage() {
               'Start building',
             ].map((step, i) => (
               <li key={i} className="flex gap-3 text-sm">
-                <span className="font-semibold shrink-0" style={{ color: '#F4793E' }}>
+                <span className="font-semibold shrink-0" style={{ color: '#ff3d00' }}>
                   {i + 1}.
                 </span>
                 <span>{step}</span>
