@@ -32,15 +32,15 @@
   --radius-lg: var(--radius);
 }
 
-/* Light mode — Groq-inspired clean palette */
+/* Light mode — Groq-inspired warm palette */
 :root {
   --radius: 0.5rem;
-  --background: #FAFAF8;
+  --background: #EAE8E1;
   --foreground: #0C0A09;
   --surface: #FFFFFF;
-  --surface-alt: #F3F3F0;
-  --border: #E7E5E4;
-  --muted-text: #78716C;
+  --surface-alt: #F0EDE6;
+  --border: #D8D5CE;
+  --muted-text: #7A7570;
   --card: #FFFFFF;
   --card-foreground: #0C0A09;
   --primary: #1C1917;
