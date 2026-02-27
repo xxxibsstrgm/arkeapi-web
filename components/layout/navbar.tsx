@@ -23,85 +23,80 @@ export function Navbar() {
       className="sticky top-0 z-50 border-b backdrop-blur-md"
       style={{ backgroundColor: 'var(--background)', borderColor: 'var(--border)' }}
     >
-      <div className="max-w-7xl mx-auto px-8 h-16">
-        <div className="grid grid-cols-3 items-center h-full">
+      <div className="max-w-7xl mx-auto px-8 h-16 flex items-center justify-between">
 
-          {/* Left nav */}
-          <nav className="flex items-center gap-7">
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-2 shrink-0">
+          <div className="w-7 h-7 rounded-lg flex items-center justify-center"
+            style={{ backgroundColor: '#ff3d00' }}>
+            <Zap className="w-4 h-4 text-white" />
+          </div>
+          <span className="text-base font-bold" style={{ letterSpacing: '-0.02em' }}>
+            ArkeAPI
+          </span>
+        </Link>
+
+        {/* Right nav */}
+        <div className="flex items-center gap-1">
+          <nav className="hidden md:flex items-center gap-7 mr-4">
             <Link href="#pricing"
-              className="text-sm font-medium transition-opacity hover:opacity-60 hidden md:block"
+              className="text-sm font-medium transition-opacity hover:opacity-60"
               style={{ color: 'var(--foreground)' }}>
               Pricing
             </Link>
             <Link href="/docs"
-              className="text-sm font-medium transition-opacity hover:opacity-60 hidden md:block"
+              className="text-sm font-medium transition-opacity hover:opacity-60"
               style={{ color: 'var(--foreground)' }}>
               Docs
             </Link>
             <a href="https://api.arkeapi.com" target="_blank" rel="noopener noreferrer"
-              className="text-sm font-medium transition-opacity hover:opacity-60 hidden md:block"
+              className="text-sm font-medium transition-opacity hover:opacity-60"
               style={{ color: 'var(--foreground)' }}>
-              Models
+              Dashboard
             </a>
           </nav>
 
-          {/* Center logo */}
-          <div className="flex justify-center">
-            <Link href="/" className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-lg flex items-center justify-center"
-                style={{ backgroundColor: '#ff3d00' }}>
-                <Zap className="w-4 h-4 text-white" />
-              </div>
-              <span className="text-base font-bold" style={{ letterSpacing: '-0.02em' }}>
-                ArkeAPI
-              </span>
-            </Link>
-          </div>
-
-          {/* Right nav */}
-          <div className="flex items-center justify-end gap-1">
-            <div className="relative">
-              <button
-                onClick={() => setLangOpen(!langOpen)}
-                className="flex items-center gap-1.5 h-9 px-2.5 rounded-lg text-sm transition-opacity hover:opacity-60"
-                style={{ color: 'var(--muted-text)' }}
-              >
-                <Globe className="w-4 h-4" />
-                <span className="hidden md:inline text-xs font-semibold">
-                  {currentLang === 'en' ? 'EN' : currentLang.slice(0,2).toUpperCase()}
-                </span>
-              </button>
-              {langOpen && (
-                <div className="absolute right-0 top-11 w-40 rounded-xl border shadow-xl py-1 z-50"
-                  style={{ backgroundColor: 'var(--surface)', borderColor: 'var(--border)' }}>
-                  {LANGUAGES.map((lang) => (
-                    <button key={lang.code}
-                      onClick={() => { setCurrentLang(lang.code); setLangOpen(false) }}
-                      className="w-full text-left px-4 py-2 text-sm transition-opacity hover:opacity-70"
-                      style={{ color: lang.code === currentLang ? '#ff3d00' : 'var(--foreground)' }}>
-                      {lang.label}
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-
+          <div className="relative">
             <button
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="h-9 w-9 flex items-center justify-center rounded-lg transition-opacity hover:opacity-60"
+              onClick={() => setLangOpen(!langOpen)}
+              className="flex items-center gap-1.5 h-9 px-2.5 rounded-lg text-sm transition-opacity hover:opacity-60"
               style={{ color: 'var(--muted-text)' }}
             >
-              {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+              <Globe className="w-4 h-4" />
+              <span className="hidden md:inline text-xs font-semibold">
+                {currentLang === 'en' ? 'EN' : currentLang.slice(0,2).toUpperCase()}
+              </span>
             </button>
-
-            <Link href="#pricing"
-              className="h-9 px-5 rounded-full text-sm font-bold text-white inline-flex items-center transition-opacity hover:opacity-88 ml-2"
-              style={{ backgroundColor: '#ff3d00' }}>
-              Get API Key
-            </Link>
+            {langOpen && (
+              <div className="absolute right-0 top-11 w-40 rounded-xl border shadow-xl py-1 z-50"
+                style={{ backgroundColor: 'var(--surface)', borderColor: 'var(--border)' }}>
+                {LANGUAGES.map((lang) => (
+                  <button key={lang.code}
+                    onClick={() => { setCurrentLang(lang.code); setLangOpen(false) }}
+                    className="w-full text-left px-4 py-2 text-sm transition-opacity hover:opacity-70"
+                    style={{ color: lang.code === currentLang ? '#ff3d00' : 'var(--foreground)' }}>
+                    {lang.label}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
+          <button
+            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            className="h-9 w-9 flex items-center justify-center rounded-lg transition-opacity hover:opacity-60"
+            style={{ color: 'var(--muted-text)' }}
+          >
+            {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+          </button>
+
+          <Link href="#pricing"
+            className="h-9 px-5 rounded-full text-sm font-bold text-white inline-flex items-center transition-opacity hover:opacity-88 ml-2"
+            style={{ backgroundColor: '#ff3d00' }}>
+            Get API Key
+          </Link>
         </div>
+
       </div>
     </header>
   )
