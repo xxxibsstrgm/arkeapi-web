@@ -21,7 +21,7 @@ export function Pricing() {
 
   return (
     <section id="pricing" className="border-t" style={{ borderColor: 'var(--border)' }}>
-      <div className="max-w-6xl mx-auto px-6 py-20">
+      <div className="max-w-7xl mx-auto px-8 py-20">
         {/* Section header */}
         <div className="mb-14">
           <p className="text-xs font-semibold uppercase tracking-widest mb-4"

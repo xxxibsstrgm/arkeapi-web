@@ -1,16 +1,16 @@
 'use client'
 import Link from 'next/link'
 import { useTheme } from 'next-themes'
-import { Sun, Moon, Globe } from 'lucide-react'
+import { Sun, Moon, Globe, Zap } from 'lucide-react'
 import { useState } from 'react'
 
 const LANGUAGES = [
-  { code: 'en', label: 'English' },
+  { code: 'en',    label: 'English' },
   { code: 'zh-CN', label: '简体中文' },
   { code: 'zh-TW', label: '繁體中文' },
-  { code: 'ja', label: '日本語' },
-  { code: 'ko', label: '한국어' },
-  { code: 'es', label: 'Español' },
+  { code: 'ja',    label: '日本語' },
+  { code: 'ko',    label: '한국어' },
+  { code: 'es',    label: 'Español' },
 ]
 
 export function Navbar() {
@@ -19,70 +19,89 @@ export function Navbar() {
   const [currentLang, setCurrentLang] = useState('en')
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-md border-b"
-      style={{ backgroundColor: 'var(--background)', borderColor: 'var(--border)', opacity: 0.95 }}>
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link href="/" className="text-base font-semibold tracking-tight">
-          ArkeAPI
-        </Link>
+    <header
+      className="sticky top-0 z-50 border-b backdrop-blur-md"
+      style={{ backgroundColor: 'var(--background)', borderColor: 'var(--border)' }}
+    >
+      <div className="max-w-7xl mx-auto px-8 h-16">
+        <div className="grid grid-cols-3 items-center h-full">
 
-        <nav className="flex items-center gap-6">
-          <Link href="#pricing" className="text-sm transition-colors hidden md:block"
-            style={{ color: 'var(--muted-text)' }}>
-            Pricing
-          </Link>
-          <a href="https://api.arkeapi.com" target="_blank" rel="noopener noreferrer"
-            className="text-sm transition-colors hidden md:block"
-            style={{ color: 'var(--muted-text)' }}>
-            Docs
-          </a>
-          {/* Language selector */}
-          <div className="relative">
-            <button
-              onClick={() => setLangOpen(!langOpen)}
-              className="flex items-center gap-1.5 text-sm transition-colors p-2 rounded"
-              style={{ color: 'var(--muted-text)' }}
-            >
-              <Globe className="w-4 h-4" />
-              <span className="hidden md:inline text-xs">
-                {LANGUAGES.find(l => l.code === currentLang)?.label}
-              </span>
-            </button>
-            {langOpen && (
-              <div className="absolute right-0 top-10 w-40 rounded-lg border shadow-lg py-1 z-50"
-                style={{ backgroundColor: 'var(--surface)', borderColor: 'var(--border)' }}>
-                {LANGUAGES.map((lang) => (
-                  <button
-                    key={lang.code}
-                    onClick={() => { setCurrentLang(lang.code); setLangOpen(false) }}
-                    className="w-full text-left px-4 py-2 text-sm transition-colors"
-                    style={{
-                      color: lang.code === currentLang ? '#ff3d00' : 'var(--foreground)',
-                      backgroundColor: 'transparent',
-                    }}
-                  >
-                    {lang.label}
-                  </button>
-                ))}
+          {/* Left nav */}
+          <nav className="flex items-center gap-7">
+            <Link href="#pricing"
+              className="text-sm font-medium transition-opacity hover:opacity-60 hidden md:block"
+              style={{ color: 'var(--foreground)' }}>
+              Pricing
+            </Link>
+            <Link href="/docs"
+              className="text-sm font-medium transition-opacity hover:opacity-60 hidden md:block"
+              style={{ color: 'var(--foreground)' }}>
+              Docs
+            </Link>
+            <a href="https://api.arkeapi.com" target="_blank" rel="noopener noreferrer"
+              className="text-sm font-medium transition-opacity hover:opacity-60 hidden md:block"
+              style={{ color: 'var(--foreground)' }}>
+              Models
+            </a>
+          </nav>
+
+          {/* Center logo */}
+          <div className="flex justify-center">
+            <Link href="/" className="flex items-center gap-2">
+              <div className="w-7 h-7 rounded-lg flex items-center justify-center"
+                style={{ backgroundColor: '#ff3d00' }}>
+                <Zap className="w-4 h-4 text-white" />
               </div>
-            )}
+              <span className="text-base font-bold" style={{ letterSpacing: '-0.02em' }}>
+                ArkeAPI
+              </span>
+            </Link>
           </div>
 
-          {/* Dark mode toggle */}
-          <button
-            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-            className="p-2 rounded transition-colors"
-            style={{ color: 'var(--muted-text)' }}
-          >
-            {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
-          </button>
+          {/* Right nav */}
+          <div className="flex items-center justify-end gap-1">
+            <div className="relative">
+              <button
+                onClick={() => setLangOpen(!langOpen)}
+                className="flex items-center gap-1.5 h-9 px-2.5 rounded-lg text-sm transition-opacity hover:opacity-60"
+                style={{ color: 'var(--muted-text)' }}
+              >
+                <Globe className="w-4 h-4" />
+                <span className="hidden md:inline text-xs font-semibold">
+                  {currentLang === 'en' ? 'EN' : currentLang.slice(0,2).toUpperCase()}
+                </span>
+              </button>
+              {langOpen && (
+                <div className="absolute right-0 top-11 w-40 rounded-xl border shadow-xl py-1 z-50"
+                  style={{ backgroundColor: 'var(--surface)', borderColor: 'var(--border)' }}>
+                  {LANGUAGES.map((lang) => (
+                    <button key={lang.code}
+                      onClick={() => { setCurrentLang(lang.code); setLangOpen(false) }}
+                      className="w-full text-left px-4 py-2 text-sm transition-opacity hover:opacity-70"
+                      style={{ color: lang.code === currentLang ? '#ff3d00' : 'var(--foreground)' }}>
+                      {lang.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
 
-          <Link href="#pricing"
-            className="text-sm px-4 py-2 rounded transition-colors text-white font-medium"
-            style={{ backgroundColor: '#ff3d00' }}>
-            Get API Key
-          </Link>
-        </nav>
+            <button
+              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+              className="h-9 w-9 flex items-center justify-center rounded-lg transition-opacity hover:opacity-60"
+              style={{ color: 'var(--muted-text)' }}
+            >
+              {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+            </button>
+
+            <Link href="#pricing"
+              className="h-9 px-5 rounded-full text-sm font-bold text-white inline-flex items-center transition-opacity hover:opacity-88 ml-2"
+              style={{ backgroundColor: '#ff3d00' }}>
+              Get API Key
+            </Link>
+          </div>
+
+        </div>
       </div>
     </header>
   )

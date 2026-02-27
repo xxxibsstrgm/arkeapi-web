@@ -27,7 +27,7 @@ export function Hero() {
       className="min-h-[88vh] flex items-center border-b"
       style={{ borderColor: 'var(--border)' }}
     >
-      <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16 py-20">
+      <div className="w-full max-w-7xl mx-auto px-8 py-20">
         <div
           className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-10 lg:gap-20 items-center"
         >

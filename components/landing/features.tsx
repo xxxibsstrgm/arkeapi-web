@@ -27,7 +27,7 @@ export function Features() {
       className="border-t"
       style={{ borderColor: '#D4D3CC' }}
     >
-      <div className="max-w-6xl mx-auto px-6 py-20">
+      <div className="max-w-7xl mx-auto px-8 py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {FEATURES.map((f) => (
             <div key={f.label}>

@@ -40,7 +40,7 @@ const WHY_ITEMS = [
 export function Why() {
   return (
     <section className="border-t" style={{ borderColor: 'var(--border)' }}>
-      <div className="max-w-6xl mx-auto px-6 py-20">
+      <div className="max-w-7xl mx-auto px-8 py-20">
         <div className="mb-14">
           <p className="text-xs font-semibold uppercase tracking-widest mb-4"
             style={{ color: 'var(--muted-text)', letterSpacing: '0.08em' }}>
