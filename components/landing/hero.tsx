@@ -10,158 +10,142 @@ client = OpenAI(
 
 response = client.chat.completions.create(
     model=<span style="color:#c3e88d">"gpt-4o"</span>,
-    messages=[{
-        <span style="color:#c3e88d">"role"</span>: <span style="color:#c3e88d">"user"</span>,
-        <span style="color:#c3e88d">"content"</span>: <span style="color:#c3e88d">"Hello!"</span>,
-    }],
+    messages=[
+        {
+            <span style="color:#c3e88d">"role"</span>: <span style="color:#c3e88d">"user"</span>,
+            <span style="color:#c3e88d">"content"</span>: <span style="color:#c3e88d">"Hello!"</span>,
+        }
+    ],
 )
 
 <span style="color:#82aaff">print</span>(response.choices[0].message.content)
 <span style="color:rgba(255,255,255,0.32)"># &gt; Hello! How can I help you today?</span>`
 
-const STATS = [
-  { value: '15+', label: 'Models' },
-  { value: '<60ms', label: 'Avg Latency' },
-  { value: '99.9%', label: 'Uptime' },
-]
-
 export function Hero() {
   return (
     <section
-      className="relative overflow-hidden"
-      style={{ backgroundColor: '#0A0A09', minHeight: '100vh' }}
+      className="min-h-[88vh] flex items-center border-b"
+      style={{ borderColor: 'var(--border)' }}
     >
-      {/* Grid background */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage:
-            'linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)',
-          backgroundSize: '64px 64px',
-        }}
-      />
+      <div className="w-full max-w-[1440px] mx-auto px-10 py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-10 lg:gap-20 items-center">
 
-      {/* Ambient glow */}
-      <div
-        className="absolute top-0 right-1/3 w-[600px] h-[400px] pointer-events-none"
-        style={{
-          background: 'radial-gradient(ellipse, rgba(255,61,0,0.12) 0%, transparent 70%)',
-        }}
-      />
-
-      <div
-        className="relative max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-[1.2fr_1fr]"
-        style={{ minHeight: '100vh' }}
-      >
-        {/* Left: Content */}
-        <div className="flex flex-col justify-center px-12 lg:px-20 py-24">
-          <p
-            className="text-xs font-mono uppercase mb-8"
-            style={{ color: '#ff3d00', letterSpacing: '0.15em' }}
-          >
-            OpenAI-Compatible · 15+ Models · Singapore Edge
-          </p>
-
-          <h1
-            className="font-bold leading-[0.92] mb-8 text-white"
+          {/* Left: Terminal */}
+          <div
+            className="order-2 lg:order-1 rounded-xl overflow-hidden"
             style={{
-              fontSize: 'clamp(3.5rem, 6vw, 5.5rem)',
-              letterSpacing: '-0.04em',
+              backgroundColor: '#111110',
+              border: '1px solid #2A2A28',
+              boxShadow: '0 32px 64px -16px rgba(0,0,0,0.22), 0 0 0 1px rgba(255,255,255,0.03)',
+              minHeight: '480px',
             }}
           >
-            One key.<br />
-            Every model.<br />
-            <span style={{ color: '#ff3d00' }}>Zero limits.</span>
-          </h1>
-
-          <p
-            className="text-lg mb-12 leading-relaxed max-w-lg"
-            style={{ color: 'rgba(255,255,255,0.45)', lineHeight: '1.75' }}
-          >
-            Drop-in OpenAI replacement. Access GPT-4o, Claude 3.5, Gemini and more through one gateway. Token quota never expires.
-          </p>
-
-          <div className="flex flex-wrap items-center gap-3 mb-16">
-            <Link
-              href="#pricing"
-              className="inline-flex items-center h-12 px-8 text-sm font-bold text-white rounded-full transition-opacity hover:opacity-88"
-              style={{ backgroundColor: '#ff3d00', letterSpacing: '-0.005em' }}
+            {/* Terminal chrome */}
+            <div
+              className="px-5 py-3.5 border-b flex items-center justify-between"
+              style={{ borderColor: '#252523', backgroundColor: '#161614' }}
             >
-              Get API Key
-            </Link>
-            <a
-              href="https://api.arkeapi.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center h-12 px-7 text-sm font-medium rounded-full border transition-opacity hover:opacity-70"
-              style={{ color: 'rgba(255,255,255,0.7)', borderColor: 'rgba(255,255,255,0.12)', backgroundColor: 'transparent' }}
-            >
-              View Docs →
-            </a>
-          </div>
-
-          {/* Stats */}
-          <div
-            className="flex flex-wrap gap-10 pt-8 border-t"
-            style={{ borderColor: 'rgba(255,255,255,0.08)' }}
-          >
-            {STATS.map((s) => (
-              <div key={s.label}>
-                <p
-                  className="text-3xl font-bold text-white"
-                  style={{ letterSpacing: '-0.03em' }}
-                >
-                  {s.value}
-                </p>
-                <p
-                  className="text-xs font-mono uppercase mt-1"
-                  style={{ color: 'rgba(255,255,255,0.35)', letterSpacing: '0.1em' }}
-                >
-                  {s.label}
-                </p>
+              <div className="flex items-center gap-1.5">
+                <span className="w-3 h-3 rounded-full" style={{ backgroundColor: '#FF5F57' }} />
+                <span className="w-3 h-3 rounded-full" style={{ backgroundColor: '#FEBC2E' }} />
+                <span className="w-3 h-3 rounded-full" style={{ backgroundColor: '#28C840' }} />
               </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Right: Terminal */}
-        <div
-          className="hidden lg:flex flex-col justify-center border-l"
-          style={{
-            backgroundColor: '#0D0D0C',
-            borderColor: 'rgba(255,255,255,0.08)',
-          }}
-        >
-          {/* Terminal chrome */}
-          <div
-            className="px-6 py-4 border-b flex items-center justify-between"
-            style={{ borderColor: 'rgba(255,255,255,0.06)', backgroundColor: 'rgba(255,255,255,0.02)' }}
-          >
-            <div className="flex items-center gap-1.5">
-              <span className="w-3 h-3 rounded-full" style={{ backgroundColor: '#FF5F57' }} />
-              <span className="w-3 h-3 rounded-full" style={{ backgroundColor: '#FEBC2E' }} />
-              <span className="w-3 h-3 rounded-full" style={{ backgroundColor: '#28C840' }} />
+              <span className="text-xs font-mono" style={{ color: 'rgba(255,255,255,0.22)' }}>
+                quickstart.py
+              </span>
+              <span
+                className="text-xs px-2.5 py-0.5 rounded font-mono"
+                style={{ color: 'rgba(255,255,255,0.25)', backgroundColor: 'rgba(255,255,255,0.06)' }}
+              >
+                Python
+              </span>
             </div>
-            <span className="text-xs font-mono" style={{ color: 'rgba(255,255,255,0.2)' }}>
-              quickstart.py
-            </span>
-            <span
-              className="text-xs px-2.5 py-0.5 rounded font-mono"
-              style={{ color: 'rgba(255,255,255,0.22)', backgroundColor: 'rgba(255,255,255,0.05)' }}
-            >
-              Python
-            </span>
+
+            {/* Code body */}
+            <pre
+              className="px-8 py-8 text-sm leading-[1.9] overflow-x-auto"
+              style={{
+                fontFamily: '"JetBrains Mono", "Fira Code", "SF Mono", monospace',
+                color: 'rgba(255,255,255,0.7)',
+                minHeight: '420px',
+              }}
+              dangerouslySetInnerHTML={{ __html: CODE_HTML }}
+            />
           </div>
 
-          {/* Code body */}
-          <pre
-            className="px-10 py-10 text-sm leading-[1.9] overflow-x-auto flex-1"
-            style={{
-              fontFamily: '"JetBrains Mono", "Fira Code", "SF Mono", monospace',
-              color: 'rgba(255,255,255,0.65)',
-            }}
-            dangerouslySetInnerHTML={{ __html: CODE_HTML }}
-          />
+          {/* Right: Content */}
+          <div className="order-1 lg:order-2">
+            <p
+              className="text-xs font-bold uppercase mb-6"
+              style={{ color: '#ff3d00', letterSpacing: '0.12em' }}
+            >
+              OpenAI-Compatible · 15+ Models
+            </p>
+
+            <h1
+              className="font-extrabold leading-[1.02] mb-7"
+              style={{
+                fontSize: 'clamp(2.6rem, 4.5vw, 3.6rem)',
+                letterSpacing: '-0.04em',
+                color: 'var(--foreground)',
+              }}
+            >
+              One key.<br />
+              Every model.<br />
+              <span style={{ color: '#ff3d00' }}>Zero limits.</span>
+            </h1>
+
+            <p
+              className="text-lg mb-10 leading-relaxed"
+              style={{ color: 'var(--muted-text)', maxWidth: '22rem', lineHeight: '1.8' }}
+            >
+              Drop-in OpenAI replacement. Access GPT-4o, Claude 3.5, Gemini and more through one gateway. Token quota never expires.
+            </p>
+
+            <div className="flex flex-wrap items-center gap-3 mb-14">
+              <Link
+                href="#pricing"
+                className="inline-flex items-center h-12 px-8 text-sm font-bold text-white rounded-full transition-opacity hover:opacity-88"
+                style={{ backgroundColor: '#ff3d00', letterSpacing: '-0.005em' }}
+              >
+                Get API Key
+              </Link>
+              <a
+                href="https://api.arkeapi.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center h-12 px-7 text-sm font-medium rounded-full border transition-colors hover:opacity-70"
+                style={{ color: 'var(--foreground)', borderColor: 'var(--border)', backgroundColor: 'var(--surface)' }}
+              >
+                View Docs →
+              </a>
+            </div>
+
+            {/* Stats */}
+            <div
+              className="flex flex-wrap gap-10 pt-8 border-t"
+              style={{ borderColor: 'var(--border)' }}
+            >
+              {[
+                { label: 'Models', value: '15+' },
+                { label: 'Avg Latency', value: '<60ms' },
+                { label: 'Uptime', value: '99.9%' },
+              ].map((stat) => (
+                <div key={stat.label}>
+                  <p className="text-3xl font-extrabold" style={{ letterSpacing: '-0.03em' }}>
+                    {stat.value}
+                  </p>
+                  <p
+                    className="text-xs font-semibold uppercase mt-1"
+                    style={{ color: 'var(--muted-text)', letterSpacing: '0.08em' }}
+                  >
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
