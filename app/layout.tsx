@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Space_Grotesk } from 'next/font/google'
 import { Providers } from '@/components/providers'
+import { SpotlightGrid } from '@/components/layout/spotlight-grid'
 import './globals.css'
 
 const spaceGrotesk = Space_Grotesk({
@@ -32,7 +33,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={spaceGrotesk.variable} suppressHydrationWarning>
       <body className="antialiased">
-        <Providers>{children}</Providers>
+        {/* Interactive spotlight grid — fixed behind all content, light mode only */}
+        <SpotlightGrid />
+        {/* Content layer — above the spotlight grid */}
+        <div style={{ position: 'relative', zIndex: 1 }}>
+          <Providers>{children}</Providers>
+        </div>
       </body>
     </html>
   )

@@ -38,7 +38,7 @@ export function Testimonials() {
   return (
     <section
       className="border-t overflow-hidden"
-      style={{ borderColor: 'var(--border)', backgroundColor: '#F0F0E8' }}
+      style={{ borderColor: 'var(--border)', backgroundColor: 'var(--background)' }}
     >
       <div className="py-20">
 
@@ -46,7 +46,7 @@ export function Testimonials() {
         <div className="text-center mb-14 px-10">
           <p
             className="uppercase mb-4"
-            style={{ fontSize: '12px', color: '#ff3d00', letterSpacing: '0.15em' }}
+            style={{ fontSize: '12px', color: '#FF4500', letterSpacing: '0.15em' }}
           >
             Don&apos;t take our word for it.
           </p>
@@ -63,11 +63,11 @@ export function Testimonials() {
           {/* Fade edges */}
           <div
             className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
-            style={{ background: 'linear-gradient(to right, #F0F0E8, transparent)' }}
+            style={{ background: 'linear-gradient(to right, var(--background), transparent)' }}
           />
           <div
             className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
-            style={{ background: 'linear-gradient(to left, #F0F0E8, transparent)' }}
+            style={{ background: 'linear-gradient(to left, var(--background), transparent)' }}
           />
 
           <div className="flex">
@@ -81,7 +81,7 @@ export function Testimonials() {
                   className="shrink-0 flex flex-col justify-between rounded-sm border"
                   style={{
                     width: '480px',
-                    backgroundColor: '#EAEAE2',
+                    backgroundColor: '#EAE9E1',
                     borderColor: 'rgba(0,0,0,0.05)',
                     paddingTop: '2.5rem',
                     paddingBottom: '1.5rem',

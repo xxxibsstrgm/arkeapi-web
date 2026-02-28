@@ -35,7 +35,7 @@ export function QuotaRing({ used, total, size = 140, strokeWidth = 10 }: QuotaRi
         <circle
           cx={size / 2} cy={size / 2} r={radius}
           fill="none"
-          stroke="#ff3d00"
+          stroke="#FF4500"
           strokeWidth={strokeWidth}
           strokeLinecap="round"
           strokeDasharray={circumference}
@@ -72,7 +72,7 @@ export function QuotaBar({ used, total }: { used: number; total: number }) {
       >
         <div
           className="h-full rounded-full transition-all duration-500"
-          style={{ width: `${pct}%`, backgroundColor: '#ff3d00' }}
+          style={{ width: `${pct}%`, backgroundColor: '#FF4500' }}
         />
       </div>
     </div>
