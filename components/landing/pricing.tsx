@@ -1,23 +1,34 @@
 'use client'
 import { useCheckout } from '@/hooks/use-checkout'
 import { PLANS } from '@/lib/plans'
-import { Check, Copy, CheckCheck } from 'lucide-react'
-import { useState } from 'react'
+import { Check } from 'lucide-react'
+import { CodeBlock } from '@/components/ui/code-block'
 
-const CURL_SNIPPET = `curl https://api.arkeapi.com/v1/chat/completions \\
-  -H "Authorization: Bearer sk-arke-..." \\
-  -H "Content-Type: application/json" \\
-  -d '{"model": "gpt-4o-mini", "messages": [{"role": "user", "content": "Hello"}]}'`
+const CURL_HTML = `<span style="color:#82aaff">curl</span> https://api.arkeapi.com/v1/chat/completions \\
+  -H <span style="color:#c3e88d">"Authorization: Bearer sk-arke-..."</span> \\
+  -H <span style="color:#c3e88d">"Content-Type: application/json"</span> \\
+  -d <span style="color:#c3e88d">'{"model": "gpt-4o-mini", "messages": [{"role": "user", "content": "Hello"}]}'</span>`
+
+const PYTHON_HTML = `<span style="color:#c792ea">from</span> openai <span style="color:#c792ea">import</span> OpenAI
+
+client = OpenAI(
+    base_url=<span style="color:#c3e88d">"https://api.arkeapi.com/v1"</span>,
+    api_key=<span style="color:#c3e88d">"sk-arke-..."</span>,
+)
+
+response = client.chat.completions.create(
+    model=<span style="color:#c3e88d">"gpt-4o-mini"</span>,
+    messages=[{<span style="color:#c3e88d">"role"</span>: <span style="color:#c3e88d">"user"</span>, <span style="color:#c3e88d">"content"</span>: <span style="color:#c3e88d">"Hello!"</span>}],
+)
+<span style="color:#82aaff">print</span>(response.choices[<span style="color:#f78c6c">0</span>].message.content)`
+
+const QUICK_START_TABS = [
+  { lang: 'cURL', code: CURL_HTML },
+  { lang: 'Python', code: PYTHON_HTML },
+]
 
 export function Pricing() {
   const { checkout, loading, error } = useCheckout()
-  const [copied, setCopied] = useState(false)
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText(CURL_SNIPPET)
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
-  }
 
   return (
     <section id="pricing" className="border-t" style={{ borderColor: 'var(--border)' }}>
@@ -111,25 +122,9 @@ export function Pricing() {
           {' '}for real-time model status and current ratios.
         </div>
 
-        {/* Code snippet with copy button */}
-        <div className="mt-10 rounded-lg overflow-hidden" style={{ backgroundColor: '#0A0A0A' }}>
-          <div className="flex items-center justify-between px-6 py-3 border-b"
-            style={{ borderColor: '#1A1A1A' }}>
-            <p className="text-xs uppercase tracking-widest font-medium"
-              style={{ color: 'rgba(255,255,255,0.3)', letterSpacing: '0.08em' }}>
-              Quick Start
-            </p>
-            <button onClick={handleCopy}
-              className="flex items-center gap-2 text-xs transition-colors px-3 py-1 rounded"
-              style={{ color: copied ? '#FF4500' : 'rgba(255,255,255,0.4)' }}>
-              {copied ? <CheckCheck className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
-              {copied ? 'Copied!' : 'Copy'}
-            </button>
-          </div>
-          <pre className="px-6 py-5 text-xs leading-relaxed overflow-x-auto"
-            style={{ color: 'rgba(255,255,255,0.75)' }}>
-            {CURL_SNIPPET}
-          </pre>
+        {/* Quick start code block */}
+        <div className="mt-10">
+          <CodeBlock tabs={QUICK_START_TABS} />
         </div>
 
         {error && (

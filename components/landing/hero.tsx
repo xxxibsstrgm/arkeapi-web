@@ -1,25 +1,51 @@
 import Link from 'next/link'
+import { CodeBlock } from '@/components/ui/code-block'
 
-const CODE_HTML = `<span style="color:rgba(255,255,255,0.32)"># Drop-in — change one line</span>
+const PYTHON_CODE = `<span style="color:rgba(255,255,255,0.3)"># Drop-in replacement — change one line</span>
 <span style="color:#c792ea">from</span> openai <span style="color:#c792ea">import</span> OpenAI
 
 client = OpenAI(
-    base_url=<span style="color:#ff9580">"https://api.arkeapi.com/v1"</span>,
+    base_url=<span style="color:#c3e88d">"https://api.arkeapi.com/v1"</span>,
     api_key=<span style="color:#c3e88d">"sk-arke-..."</span>,
 )
 
 response = client.chat.completions.create(
     model=<span style="color:#c3e88d">"gpt-4o"</span>,
-    messages=[
-        {
-            <span style="color:#c3e88d">"role"</span>: <span style="color:#c3e88d">"user"</span>,
-            <span style="color:#c3e88d">"content"</span>: <span style="color:#c3e88d">"Hello!"</span>,
-        }
-    ],
+    messages=[{
+        <span style="color:#c3e88d">"role"</span>: <span style="color:#c3e88d">"user"</span>,
+        <span style="color:#c3e88d">"content"</span>: <span style="color:#c3e88d">"Hello!"</span>,
+    }],
 )
 
-<span style="color:#82aaff">print</span>(response.choices[0].message.content)
-<span style="color:rgba(255,255,255,0.32)"># &gt; Hello! How can I help you today?</span>`
+<span style="color:#82aaff">print</span>(response.choices[<span style="color:#f78c6c">0</span>].message.content)
+<span style="color:rgba(255,255,255,0.3)"># &gt; Hello! How can I help you today?</span>`
+
+const JS_CODE = `<span style="color:rgba(255,255,255,0.3)">// Drop-in replacement — change one line</span>
+<span style="color:#c792ea">import</span> OpenAI <span style="color:#c792ea">from</span> <span style="color:#c3e88d">"openai"</span>;
+
+<span style="color:#82aaff">const</span> client = <span style="color:#82aaff">new</span> OpenAI({
+  baseURL: <span style="color:#c3e88d">"https://api.arkeapi.com/v1"</span>,
+  apiKey: process.env.<span style="color:#ff9580">ARKE_API_KEY</span>,
+});
+
+<span style="color:#82aaff">const</span> response = <span style="color:#c792ea">await</span> client.chat.completions.create({
+  model: <span style="color:#c3e88d">"gpt-4o"</span>,
+  messages: [{ role: <span style="color:#c3e88d">"user"</span>, content: <span style="color:#c3e88d">"Hello!"</span> }],
+});
+
+console.<span style="color:#82aaff">log</span>(response.choices[<span style="color:#f78c6c">0</span>].message.content);
+<span style="color:rgba(255,255,255,0.3)">// &gt; Hello! How can I help you today?</span>`
+
+const TABS = [
+  { lang: 'Python', code: PYTHON_CODE },
+  { lang: 'JavaScript', code: JS_CODE },
+]
+
+const STATS = [
+  { label: 'Models', value: '15+' },
+  { label: 'Avg Latency', value: '<60ms' },
+  { label: 'Uptime', value: '99.9%' },
+]
 
 export function Hero() {
   return (
@@ -28,49 +54,11 @@ export function Hero() {
       style={{ borderColor: 'var(--border)' }}
     >
       <div className="w-full max-w-[1440px] mx-auto px-10 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-10 lg:gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-12 lg:gap-20 items-center">
 
-          {/* Left: Terminal */}
-          <div
-            className="order-2 lg:order-1 rounded-xl overflow-hidden"
-            style={{
-              backgroundColor: '#111110',
-              border: '1px solid #2A2A28',
-              boxShadow: '0 32px 64px -16px rgba(0,0,0,0.22), 0 0 0 1px rgba(255,255,255,0.03)',
-              minHeight: '480px',
-            }}
-          >
-            {/* Terminal chrome */}
-            <div
-              className="px-5 py-3.5 border-b flex items-center justify-between"
-              style={{ borderColor: '#252523', backgroundColor: '#161614' }}
-            >
-              <div className="flex items-center gap-1.5">
-                <span className="w-3 h-3 rounded-full" style={{ backgroundColor: '#FF5F57' }} />
-                <span className="w-3 h-3 rounded-full" style={{ backgroundColor: '#FEBC2E' }} />
-                <span className="w-3 h-3 rounded-full" style={{ backgroundColor: '#28C840' }} />
-              </div>
-              <span className="text-xs font-mono" style={{ color: 'rgba(255,255,255,0.22)' }}>
-                quickstart.py
-              </span>
-              <span
-                className="text-xs px-2.5 py-0.5 rounded font-mono"
-                style={{ color: 'rgba(255,255,255,0.25)', backgroundColor: 'rgba(255,255,255,0.06)' }}
-              >
-                Python
-              </span>
-            </div>
-
-            {/* Code body */}
-            <pre
-              className="px-8 py-8 text-sm leading-[1.9] overflow-x-auto"
-              style={{
-                fontFamily: '"JetBrains Mono", "Fira Code", "SF Mono", monospace',
-                color: 'rgba(255,255,255,0.7)',
-                minHeight: '420px',
-              }}
-              dangerouslySetInnerHTML={{ __html: CODE_HTML }}
-            />
+          {/* Left: Code block */}
+          <div className="order-2 lg:order-1">
+            <CodeBlock tabs={TABS} />
           </div>
 
           {/* Right: Content */}
@@ -126,20 +114,16 @@ export function Hero() {
               className="flex flex-wrap gap-10 pt-8 border-t"
               style={{ borderColor: 'var(--border)' }}
             >
-              {[
-                { label: 'Models', value: '15+' },
-                { label: 'Avg Latency', value: '<60ms' },
-                { label: 'Uptime', value: '99.9%' },
-              ].map((stat) => (
-                <div key={stat.label}>
+              {STATS.map((s) => (
+                <div key={s.label}>
                   <p className="text-3xl font-extrabold" style={{ letterSpacing: '-0.03em' }}>
-                    {stat.value}
+                    {s.value}
                   </p>
                   <p
                     className="text-xs font-semibold uppercase mt-1"
                     style={{ color: 'var(--muted-text)', letterSpacing: '0.08em' }}
                   >
-                    {stat.label}
+                    {s.label}
                   </p>
                 </div>
               ))}

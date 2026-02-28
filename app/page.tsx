@@ -16,9 +16,9 @@ export default function HomePage() {
       <ModelLogos />
       <Features />
       <Why />
+      <Pricing />
       <Testimonials />
       <Announcements />
-      <Pricing />
       <Footer />
     </main>
   )
