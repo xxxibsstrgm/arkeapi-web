@@ -67,7 +67,7 @@ const PROVIDERS = [
   },
   {
     name: 'Claude',
-    color: '#D97706',
+    color: '#C96442',
     logo: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
         <path d="M13.827 3.52h3.603L24 20h-3.603l-6.57-16.48zm-7.258 0H10.2L16.799 20H13.19L6.569 3.52z"/>
@@ -76,85 +76,74 @@ const PROVIDERS = [
   },
 ]
 
-// Duplicate for seamless loop
-const ITEMS = [...PROVIDERS, ...PROVIDERS]
+// Triplicate for robust seamless loop
+const ITEMS = [...PROVIDERS, ...PROVIDERS, ...PROVIDERS]
 
 export function ModelLogos() {
   return (
     <div
-      className="relative border-b overflow-hidden py-5"
+      className="flex items-stretch border-b"
       style={{ borderColor: 'var(--border)', backgroundColor: 'var(--surface)' }}
     >
-      {/* Fade edges */}
+      {/* Left label — fixed, Groq-style */}
       <div
-        className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
-        style={{
-          background: 'linear-gradient(to right, var(--surface), transparent)',
-        }}
-      />
-      <div
-        className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
-        style={{
-          background: 'linear-gradient(to left, var(--surface), transparent)',
-        }}
-      />
-
-      {/* Label */}
-      <p
-        className="text-center text-xs font-semibold uppercase tracking-widest mb-4"
-        style={{ color: 'var(--muted-text)', letterSpacing: '0.1em' }}
+        className="shrink-0 flex flex-col justify-center px-8 py-5 border-r"
+        style={{ borderColor: 'var(--border)', minWidth: '200px', maxWidth: '200px' }}
       >
-        Powered by the world&apos;s leading AI models
-      </p>
+        <p
+          className="text-xs font-bold uppercase leading-tight"
+          style={{ color: 'var(--foreground)', letterSpacing: '0.06em' }}
+        >
+          POWERED BY
+        </p>
+        <p
+          className="text-xs mt-0.5 leading-tight"
+          style={{ color: 'var(--muted-text)' }}
+        >
+          World&apos;s leading AI models
+        </p>
+      </div>
 
       {/* Scrolling track */}
-      <div className="flex overflow-hidden">
+      <div className="relative flex-1 overflow-hidden py-5">
+        {/* Fade left */}
         <div
-          className="flex items-center gap-10 shrink-0"
-          style={{ animation: 'marquee 28s linear infinite' }}
-        >
-          {ITEMS.map((p, i) => (
-            <div
-              key={`${p.name}-${i}`}
-              className="flex items-center gap-2.5 shrink-0 px-2"
-            >
-              <span style={{ color: p.color }}>{p.logo}</span>
-              <span
-                className="text-sm font-semibold whitespace-nowrap"
-                style={{ color: 'var(--foreground)' }}
-              >
-                {p.name}
-              </span>
-            </div>
-          ))}
-        </div>
-        {/* Second copy for seamless loop */}
+          className="absolute left-0 top-0 bottom-0 w-16 z-10 pointer-events-none"
+          style={{ background: 'linear-gradient(to right, var(--surface), transparent)' }}
+        />
+        {/* Fade right */}
         <div
-          className="flex items-center gap-10 shrink-0"
-          style={{ animation: 'marquee 28s linear infinite' }}
-          aria-hidden
-        >
-          {ITEMS.map((p, i) => (
-            <div
-              key={`${p.name}-copy-${i}`}
-              className="flex items-center gap-2.5 shrink-0 px-2"
-            >
-              <span style={{ color: p.color }}>{p.logo}</span>
-              <span
-                className="text-sm font-semibold whitespace-nowrap"
-                style={{ color: 'var(--foreground)' }}
+          className="absolute right-0 top-0 bottom-0 w-16 z-10 pointer-events-none"
+          style={{ background: 'linear-gradient(to left, var(--surface), transparent)' }}
+        />
+
+        <div className="flex items-center">
+          <div
+            className="flex items-center gap-10 shrink-0"
+            style={{ animation: 'logo-marquee 32s linear infinite' }}
+          >
+            {ITEMS.map((p, i) => (
+              <div
+                key={`${p.name}-${i}`}
+                className="flex items-center gap-2.5 shrink-0"
               >
-                {p.name}
-              </span>
-            </div>
-          ))}
+                <span style={{ color: p.color }}>{p.logo}</span>
+                <span
+                  className="text-sm font-semibold whitespace-nowrap"
+                  style={{ color: 'var(--foreground)' }}
+                >
+                  {p.name}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
       <style>{`
-        @keyframes marquee {
+        @keyframes logo-marquee {
           from { transform: translateX(0); }
-          to { transform: translateX(-100%); }
+          to { transform: translateX(-33.333%); }
         }
       `}</style>
     </div>
