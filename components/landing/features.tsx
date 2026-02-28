@@ -23,24 +23,34 @@ const FEATURES = [
 
 export function Features() {
   return (
-    <section
-      className="border-t"
-      style={{ borderColor: '#D4D3CC' }}
-    >
-      <div className="max-w-7xl mx-auto px-8 py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-          {FEATURES.map((f) => (
-            <div key={f.label}>
+    <section className="border-t" style={{ borderColor: 'var(--border)' }}>
+      <div className="max-w-[1440px] mx-auto">
+        <div className="grid grid-cols-2 lg:grid-cols-4">
+          {FEATURES.map((f, i) => (
+            <div
+              key={f.label}
+              className="p-10 border-r border-b group transition-colors cursor-default"
+              style={{
+                borderColor: 'var(--border)',
+                borderRightColor: i === FEATURES.length - 1 ? 'transparent' : 'var(--border)',
+              }}
+            >
               <p
-                className="text-xs font-semibold uppercase tracking-widest mb-3"
-                style={{ color: '#6B6B6B', letterSpacing: '0.08em' }}
+                className="text-xs font-mono uppercase mb-4"
+                style={{ color: 'var(--muted-text)', letterSpacing: '0.1em' }}
               >
                 {f.label}
               </p>
-              <p className="text-sm mb-4 leading-relaxed">{f.description}</p>
+              <p className="text-sm leading-relaxed mb-6" style={{ color: 'var(--foreground)' }}>
+                {f.description}
+              </p>
               <code
-                className="text-xs font-mono px-2 py-1 rounded block truncate border"
-                style={{ backgroundColor: '#FFFFFF', borderColor: '#D4D3CC', color: '#6B6B6B' }}
+                className="text-xs font-mono px-3 py-1.5 rounded-sm block truncate border"
+                style={{
+                  backgroundColor: 'var(--surface)',
+                  borderColor: 'var(--border)',
+                  color: 'var(--muted-text)',
+                }}
               >
                 {f.code}
               </code>

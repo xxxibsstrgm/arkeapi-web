@@ -23,7 +23,7 @@ export function Navbar() {
       className="sticky top-0 z-50 border-b backdrop-blur-md"
       style={{ backgroundColor: 'var(--background)', borderColor: 'var(--border)' }}
     >
-      <div className="max-w-7xl mx-auto px-8 h-16 flex items-center justify-between">
+      <div className="max-w-[1440px] mx-auto px-10 h-16 flex items-center justify-between">
 
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 shrink-0">
