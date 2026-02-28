@@ -18,9 +18,9 @@ const FEATURES = [
     highlightLines: [12],
   },
   {
-    label: 'Singapore edge',
-    description: 'DigitalOcean Singapore. Sub-60ms median latency across Asia-Pacific.',
-    highlightLines: [15],
+    label: 'Low-latency edge',
+    description: 'Global edge routing with sub-60ms median latency, optimized for Asia-Pacific.',
+    highlightLines: [14],
   },
 ]
 
@@ -39,8 +39,8 @@ const CODE_LINES: [string, boolean][] = [
   ['# Quota never expires', true],
   ['QUOTA_POLICY=never_expires', false],
   ['', false],
-  ['# Routed via Singapore edge', true],
-  ['REGION=ap-southeast-1', false],
+  ['# Low-latency global edge routing', true],
+  ['EDGE=auto-optimized', false],
 ]
 
 export function Features() {

@@ -51,8 +51,7 @@ export function Testimonials() {
             Don&apos;t take our word for it.
           </p>
           <h2
-            className="font-semibold"
-            style={{ fontSize: '46px', letterSpacing: '-0.025em', lineHeight: 1.1, color: '#1A1A18' }}
+            style={{ fontSize: '46px', letterSpacing: '-0.025em', lineHeight: 1.1, fontWeight: 400 }}
           >
             Proof from the people shipping.
           </h2>
@@ -81,8 +80,8 @@ export function Testimonials() {
                   className="shrink-0 flex flex-col justify-between rounded-sm border"
                   style={{
                     width: '480px',
-                    backgroundColor: '#EAE9E1',
-                    borderColor: 'rgba(0,0,0,0.06)',
+                    backgroundColor: 'var(--surface)',
+                    borderColor: 'var(--border)',
                     paddingTop: '2.5rem',
                     paddingBottom: '1.5rem',
                     paddingLeft: '2.5rem',
@@ -93,12 +92,8 @@ export function Testimonials() {
                   {/* Quote icon */}
                   <div>
                     <div
-                      className="text-4xl leading-none mb-4 select-none"
-                      style={{
-                        color: '#1A1A18',
-                        fontFamily: 'Georgia, serif',
-                        lineHeight: 1,
-                      }}
+                      className="quote-mark text-4xl leading-none mb-4 select-none"
+                      style={{ fontFamily: 'Georgia, serif', lineHeight: 1 }}
                       aria-hidden
                     >
                       &ldquo;

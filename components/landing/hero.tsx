@@ -71,11 +71,12 @@ export function Hero() {
             </p>
 
             <h1
-              className="font-extrabold leading-[1.02] mb-7"
+              className="leading-[1.02] mb-7"
               style={{
                 fontSize: 'clamp(2.6rem, 4.5vw, 3.6rem)',
                 letterSpacing: '-0.04em',
                 color: 'var(--foreground)',
+                fontWeight: 400,
               }}
             >
               One key.<br />

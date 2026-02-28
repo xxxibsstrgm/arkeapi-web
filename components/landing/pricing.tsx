@@ -42,8 +42,8 @@ export function Pricing() {
             Pricing
           </p>
           <h2
-            className="font-semibold mb-4"
-            style={{ fontSize: '46px', letterSpacing: '-0.025em', lineHeight: 1.1 }}
+            className="mb-4"
+            style={{ fontSize: '46px', letterSpacing: '-0.025em', lineHeight: 1.1, fontWeight: 400 }}
           >
             Simple, transparent pricing.
           </h2>

@@ -105,7 +105,7 @@ export function ModelLogos() {
       </div>
 
       {/* Scrolling track */}
-      <div className="relative flex-1 overflow-hidden py-5">
+      <div className="relative flex-1 overflow-hidden flex items-center">
         {/* Fade left */}
         <div
           className="absolute left-0 top-0 bottom-0 w-16 z-10 pointer-events-none"

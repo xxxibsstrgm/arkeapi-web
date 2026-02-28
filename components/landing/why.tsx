@@ -18,10 +18,10 @@ const WHY_ITEMS = [
     code: 'quota_expires: never',
   },
   {
-    title: 'Singapore Edge Server',
+    title: 'Low-Latency Edge Network',
     description:
-      'Hosted on DigitalOcean Singapore. Optimized for developers across Asia-Pacific with low-latency routing.',
-    code: 'region: ap-southeast-1',
+      'Global edge routing with sub-60ms median latency, optimized for developers across Asia-Pacific.',
+    code: 'latency: <60ms p50',
   },
   {
     title: 'Automatic Failover',
@@ -51,8 +51,7 @@ export function Why() {
             Why ArkeAPI
           </p>
           <h2
-            className="font-semibold"
-            style={{ fontSize: '46px', letterSpacing: '-0.025em', lineHeight: 1.1 }}
+            style={{ fontSize: '46px', letterSpacing: '-0.025em', lineHeight: 1.1, fontWeight: 400 }}
           >
             Built for developers who ship fast.
           </h2>

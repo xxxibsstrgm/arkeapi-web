@@ -103,7 +103,7 @@ export function Footer() {
             © {new Date().getFullYear()} ArkeAPI. All rights reserved.
           </p>
           <p className="text-xs" style={{ color: 'var(--muted-text)' }}>
-            Hosted on DigitalOcean Singapore · ap-southeast-1
+            Global edge network · Asia-Pacific optimized
           </p>
         </div>
       </div>
