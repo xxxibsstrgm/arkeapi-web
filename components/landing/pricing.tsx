@@ -23,16 +23,20 @@ export function Pricing() {
     <section id="pricing" className="border-t" style={{ borderColor: 'var(--border)' }}>
       <div className="max-w-[1440px] mx-auto px-10 py-20">
         {/* Section header */}
-        <div className="mb-14">
-          <p className="text-xs font-semibold uppercase tracking-widest mb-4"
-            style={{ color: 'var(--muted-text)', letterSpacing: '0.08em' }}>
+        <div className="text-center mb-14">
+          <p
+            className="uppercase mb-4"
+            style={{ fontSize: '12px', color: '#ff3d00', letterSpacing: '0.15em' }}
+          >
             Pricing
           </p>
-          <h2 className="text-4xl font-semibold tracking-tight mb-3"
-            style={{ letterSpacing: '-0.02em' }}>
+          <h2
+            className="font-semibold mb-4"
+            style={{ fontSize: '46px', letterSpacing: '-0.025em', lineHeight: 1.1 }}
+          >
             Simple, transparent pricing.
           </h2>
-          <p className="text-base max-w-md" style={{ color: 'var(--muted-text)' }}>
+          <p className="text-base" style={{ color: 'var(--muted-text)' }}>
             One-time purchase. Token quota never expires. No subscriptions.
           </p>
         </div>

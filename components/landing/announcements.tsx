@@ -41,25 +41,23 @@ export function Announcements() {
     <section className="border-t" style={{ borderColor: 'var(--border)' }}>
       <div className="max-w-7xl mx-auto px-8 py-20">
 
-        {/* Header row */}
-        <div className="flex items-end justify-between mb-10">
-          <div>
-            <p
-              className="text-xs font-semibold uppercase tracking-widest mb-3"
-              style={{ color: 'var(--muted-text)', letterSpacing: '0.1em' }}
-            >
-              Announcements
-            </p>
-            <h2
-              className="text-4xl font-semibold"
-              style={{ letterSpacing: '-0.025em' }}
-            >
-              Latest updates &amp; news
-            </h2>
-          </div>
+        {/* Section header */}
+        <div className="text-center mb-14">
+          <p
+            className="uppercase mb-4"
+            style={{ fontSize: '12px', color: '#ff3d00', letterSpacing: '0.15em' }}
+          >
+            Announcements
+          </p>
+          <h2
+            className="font-semibold mb-6"
+            style={{ fontSize: '46px', letterSpacing: '-0.025em', lineHeight: 1.1 }}
+          >
+            Latest updates &amp; news
+          </h2>
           <Link
             href="#"
-            className="text-sm font-medium transition-opacity hover:opacity-60 hidden md:flex items-center gap-1.5 mb-1"
+            className="text-sm font-medium transition-opacity hover:opacity-60 inline-flex items-center gap-1.5"
             style={{ color: 'var(--muted-text)' }}
           >
             View all <span aria-hidden>→</span>

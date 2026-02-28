@@ -45,23 +45,14 @@ export function Testimonials() {
         {/* Header — centered */}
         <div className="text-center mb-14 px-10">
           <p
-            className="uppercase mb-5"
-            style={{
-              color: '#FF4500',
-              fontSize: '10px',
-              letterSpacing: '0.3em',
-              fontFamily: 'var(--font-space-grotesk, sans-serif)',
-            }}
+            className="uppercase mb-4"
+            style={{ fontSize: '12px', color: '#ff3d00', letterSpacing: '0.15em' }}
           >
             Don&apos;t take our word for it.
           </p>
           <h2
             className="font-semibold"
-            style={{
-              fontSize: 'clamp(2rem, 4vw, 3rem)',
-              letterSpacing: '-0.03em',
-              color: '#1A1A18',
-            }}
+            style={{ fontSize: '46px', letterSpacing: '-0.025em', lineHeight: 1.1, color: '#1A1A18' }}
           >
             Proof from the people shipping.
           </h2>
