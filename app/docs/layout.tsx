@@ -57,10 +57,8 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
       </aside>
 
       {/* Main content */}
-      <main className="flex-1 ml-56">
-        <div className="max-w-3xl mx-auto px-10 py-14">
-          {children}
-        </div>
+      <main className="flex-1 ml-56 px-10 py-14">
+        {children}
       </main>
     </div>
   )
