@@ -3,10 +3,7 @@ import { useEffect } from 'react'
 
 export function SpotlightGrid() {
   useEffect(() => {
-    // Only apply on light mode (not dark)
     const root = document.documentElement
-
-    // Default position: upper-center
     root.style.setProperty('--mouse-x', '50%')
     root.style.setProperty('--mouse-y', '30%')
 
@@ -25,48 +22,53 @@ export function SpotlightGrid() {
       style={{ zIndex: 0 }}
       aria-hidden
     >
-      {/* Base background with radial gradient depth */}
+      {/* Layer 1: metallic base — warm bone with simulated light scatter */}
       <div
         style={{
           position: 'absolute',
           inset: 0,
-          background: 'radial-gradient(circle at 50% 30%, #F8F7F2 0%, #F2F1E9 100%)',
+          background: [
+            'radial-gradient(ellipse 110% 65% at 30% 15%, rgba(255,255,255,0.22) 0%, transparent 60%)',
+            'radial-gradient(ellipse 70% 55% at 78% 80%, rgba(195,190,178,0.09) 0%, transparent 55%)',
+            'linear-gradient(148deg, rgba(255,255,255,0.05) 0%, transparent 38%, rgba(0,0,0,0.012) 100%)',
+            'radial-gradient(circle at 50% 30%, #F8F7F2 0%, #F0EFE7 100%)',
+          ].join(', '),
         }}
       />
 
-      {/* Always-visible dim grid — very faint */}
+      {/* Layer 2: 20×20 precision grid — barely visible */}
       <div
         style={{
           position: 'absolute',
           inset: 0,
           backgroundImage:
-            'linear-gradient(rgba(0,0,0,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.015) 1px, transparent 1px)',
-          backgroundSize: '40px 40px',
+            'linear-gradient(rgba(0,0,0,0.008) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.008) 1px, transparent 1px)',
+          backgroundSize: '20px 20px',
         }}
       />
 
-      {/* Spotlight grid — slightly brighter near cursor */}
+      {/* Layer 3: spotlight grid — 3% opacity reveal near cursor */}
       <div
         style={{
           position: 'absolute',
           inset: 0,
           backgroundImage:
-            'linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px)',
-          backgroundSize: '40px 40px',
+            'linear-gradient(rgba(0,0,0,0.032) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.032) 1px, transparent 1px)',
+          backgroundSize: '20px 20px',
           maskImage:
-            'radial-gradient(circle 350px at var(--mouse-x, 50%) var(--mouse-y, 30%), black 0%, transparent 100%)',
+            'radial-gradient(circle 280px at var(--mouse-x, 50%) var(--mouse-y, 30%), black 0%, transparent 100%)',
           WebkitMaskImage:
-            'radial-gradient(circle 350px at var(--mouse-x, 50%) var(--mouse-y, 30%), black 0%, transparent 100%)',
+            'radial-gradient(circle 280px at var(--mouse-x, 50%) var(--mouse-y, 30%), black 0%, transparent 100%)',
         }}
       />
 
-      {/* Subtle white glow at cursor */}
+      {/* Layer 4: polished metal reflection — subtle warm highlight at cursor */}
       <div
         style={{
           position: 'absolute',
           inset: 0,
           background:
-            'radial-gradient(circle 200px at var(--mouse-x, 50%) var(--mouse-y, 30%), rgba(255,255,255,0.12) 0%, transparent 100%)',
+            'radial-gradient(circle 180px at var(--mouse-x, 50%) var(--mouse-y, 30%), rgba(255,255,255,0.09) 0%, transparent 100%)',
         }}
       />
     </div>

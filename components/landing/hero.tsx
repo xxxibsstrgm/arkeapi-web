@@ -65,7 +65,7 @@ export function Hero() {
           <div className="order-1 lg:order-2">
             <p
               className="text-xs font-bold uppercase mb-6"
-              style={{ color: '#FF4500', letterSpacing: '0.12em' }}
+              style={{ color: '#FF4500', letterSpacing: '0.12em', textShadow: '0 0 10px rgba(255,69,0,0.25)' }}
             >
               OpenAI-Compatible · 15+ Models
             </p>

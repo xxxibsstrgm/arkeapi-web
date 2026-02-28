@@ -46,7 +46,7 @@ export function Why() {
         <div className="text-center mb-14">
           <p
             className="uppercase mb-4"
-            style={{ fontSize: '12px', color: '#FF4500', letterSpacing: '0.15em' }}
+            style={{ fontSize: '12px', color: '#FF4500', letterSpacing: '0.15em', textShadow: '0 0 10px rgba(255,69,0,0.25)' }}
           >
             Why ArkeAPI
           </p>
@@ -63,7 +63,7 @@ export function Why() {
           {WHY_ITEMS.map((item) => (
             <div
               key={item.title}
-              className="p-6 rounded-lg border"
+              className="metal-card p-6 rounded-lg border cursor-default"
               style={{ backgroundColor: 'var(--surface)', borderColor: 'var(--border)' }}
             >
               <h3 className="text-base font-semibold mb-2">{item.title}</h3>
@@ -75,7 +75,8 @@ export function Why() {
                 style={{
                   backgroundColor: 'var(--background)',
                   borderColor: 'var(--border)',
-                  color: 'var(--muted-text)',
+                  color: '#FF4500',
+                  textShadow: '0 0 8px rgba(255,69,0,0.2)',
                 }}
               >
                 {item.code}

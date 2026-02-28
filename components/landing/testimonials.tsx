@@ -46,7 +46,7 @@ export function Testimonials() {
         <div className="text-center mb-14 px-10">
           <p
             className="uppercase mb-4"
-            style={{ fontSize: '12px', color: '#FF4500', letterSpacing: '0.15em' }}
+            style={{ fontSize: '12px', color: '#FF4500', letterSpacing: '0.15em', textShadow: '0 0 10px rgba(255,69,0,0.25)' }}
           >
             Don&apos;t take our word for it.
           </p>
@@ -82,11 +82,12 @@ export function Testimonials() {
                   style={{
                     width: '480px',
                     backgroundColor: '#EAE9E1',
-                    borderColor: 'rgba(0,0,0,0.05)',
+                    borderColor: 'rgba(0,0,0,0.06)',
                     paddingTop: '2.5rem',
                     paddingBottom: '1.5rem',
                     paddingLeft: '2.5rem',
                     paddingRight: '2.5rem',
+                    boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.75), inset 0 -1px 0 rgba(0,0,0,0.04)',
                   }}
                 >
                   {/* Quote icon */}
@@ -94,7 +95,7 @@ export function Testimonials() {
                     <div
                       className="text-4xl leading-none mb-4 select-none"
                       style={{
-                        color: '#FF4500',
+                        color: '#1A1A18',
                         fontFamily: 'Georgia, serif',
                         lineHeight: 1,
                       }}
