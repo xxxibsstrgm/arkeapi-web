@@ -35,9 +35,6 @@ export function Pricing() {
               style={{
                 backgroundColor: 'var(--surface)',
                 borderColor: plan.highlighted ? '#FF4F00' : 'var(--border)',
-                boxShadow: plan.highlighted
-                  ? '0 0 0 1px #FF4F00, inset 0 1px 0 rgba(255,255,255,0.72)'
-                  : 'inset 0 1px 0 rgba(255,255,255,0.72), inset 0 -1px 0 rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.04)',
               }}>
               {plan.highlighted && (
                 <div className="absolute -top-3 left-8 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-white rounded"
