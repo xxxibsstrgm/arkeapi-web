@@ -39,13 +39,7 @@ const WHY_ITEMS = [
 
 export function Why() {
   return (
-    <section
-      className="border-t"
-      style={{
-        borderColor: 'var(--border)',
-        background: 'linear-gradient(160deg, #141416 0%, #111112 60%, #0F0F10 100%)',
-      }}
-    >
+    <section className="border-t" style={{ borderColor: 'var(--border)' }}>
       <div className="max-w-[1440px] mx-auto px-10 py-20">
 
         {/* Section header */}

@@ -44,13 +44,7 @@ const CASES = [
 
 export function UseCases() {
   return (
-    <section
-      className="border-t"
-      style={{
-        borderColor: 'var(--border)',
-        background: 'linear-gradient(180deg, #111112 0%, #0F0F10 100%)',
-      }}
-    >
+    <section className="border-t" style={{ borderColor: 'var(--border)' }}>
       <div className="max-w-[1440px] mx-auto px-10 py-20">
 
         {/* Header */}
