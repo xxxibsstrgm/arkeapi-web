@@ -126,7 +126,7 @@ export default async function DocPage({ params }: Props) {
           .dc-lang { font-family: "JetBrains Mono","Fira Code",monospace; font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.08em; color: #555553; }
           .doc-cp { font-family: "JetBrains Mono",monospace; font-size: 0.6875rem; color: #555553; background: none; border: none; cursor: pointer; padding: 0; transition: color 0.15s; }
           .doc-cp:hover { color: #F5F5F3; }
-          .doc-cp.copied { color: #FF4500; }
+          .doc-cp.copied { color: #FF4F00; }
           .dc-body { display: flex; overflow-x: auto; padding: 1.25rem 0; }
           .dc-lns { color: #3A3A38; font-family: "JetBrains Mono",monospace; font-size: 0.8125rem; line-height: 1.7; text-align: right; padding: 0 1rem; user-select: none; min-width: 2.5rem; flex-shrink: 0; }
           .dc-ln { line-height: 1.7; }

@@ -55,7 +55,7 @@ export function Features() {
         <div className="text-center mb-14">
           <p
             className="uppercase mb-4"
-            style={{ fontSize: '12px', color: '#FF4500', letterSpacing: '0.15em', textShadow: '0 0 10px rgba(255,69,0,0.25)' }}
+            style={{ fontSize: '12px', color: '#FF4F00', letterSpacing: '0.15em', textShadow: '0 0 10px rgba(255,79,0,0.25)' }}
           >
             Developer-first
           </p>
@@ -79,7 +79,7 @@ export function Features() {
                 className="text-left px-5 py-4 rounded-lg transition-colors"
                 style={{
                   backgroundColor: i === activeIdx ? 'var(--surface)' : 'transparent',
-                  borderLeft: `2px solid ${i === activeIdx ? '#FF4500' : 'transparent'}`,
+                  borderLeft: `2px solid ${i === activeIdx ? '#FF4F00' : 'transparent'}`,
                 }}
               >
                 <p
@@ -128,14 +128,14 @@ export function Features() {
                     key={i}
                     className="flex items-center px-5 transition-colors"
                     style={{
-                      backgroundColor: isHighlighted ? 'rgba(255,69,0,0.1)' : 'transparent',
+                      backgroundColor: isHighlighted ? 'rgba(255,79,0,0.1)' : 'transparent',
                       minHeight: '1.85em',
                     }}
                   >
                     {/* Line number */}
                     <span
                       className="select-none text-xs font-mono mr-6 shrink-0 text-right"
-                      style={{ color: isHighlighted ? '#FF4500' : '#3A3A38', minWidth: '1.5rem' }}
+                      style={{ color: isHighlighted ? '#FF4F00' : '#3A3A38', minWidth: '1.5rem' }}
                     >
                       {line === '' ? '' : i + 1}
                     </span>

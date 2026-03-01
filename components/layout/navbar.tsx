@@ -28,7 +28,7 @@ export function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 shrink-0">
           <div className="w-7 h-7 rounded-lg flex items-center justify-center"
-            style={{ backgroundColor: '#FF4500' }}>
+            style={{ backgroundColor: '#FF4F00' }}>
             <Zap className="w-4 h-4 text-white" />
           </div>
           <span className="text-base font-bold" style={{ letterSpacing: '-0.02em' }}>
@@ -74,7 +74,7 @@ export function Navbar() {
                   <button key={lang.code}
                     onClick={() => { setCurrentLang(lang.code); setLangOpen(false) }}
                     className="w-full text-left px-4 py-2 text-sm transition-opacity hover:opacity-70"
-                    style={{ color: lang.code === currentLang ? '#FF4500' : 'var(--foreground)' }}>
+                    style={{ color: lang.code === currentLang ? '#FF4F00' : 'var(--foreground)' }}>
                     {lang.label}
                   </button>
                 ))}
@@ -92,7 +92,7 @@ export function Navbar() {
 
           <Link href="/dashboard"
             className="h-9 px-5 rounded-full text-sm font-bold text-white inline-flex items-center transition-opacity hover:opacity-88 ml-2"
-            style={{ backgroundColor: '#FF4500' }}>
+            style={{ backgroundColor: '#FF4F00' }}>
             Dashboard
           </Link>
         </div>

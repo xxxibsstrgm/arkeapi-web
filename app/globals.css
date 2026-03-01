@@ -7,7 +7,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-brand: #FF4500;
+  --color-brand: #FF4F00;
   --color-brand-hover: #e03d00;
   --color-surface: var(--surface);
   --color-border: var(--border);
@@ -53,7 +53,7 @@
   --accent-foreground: #1C1917;
   --destructive: oklch(0.577 0.245 27.325);
   --input: #E2E0D8;
-  --ring: #FF4500;
+  --ring: #FF4F00;
   --popover: #EAE9E1;
   --popover-foreground: #0C0A09;
   /* Spotlight grid CSS vars — driven by JS */
@@ -65,24 +65,24 @@
 .dark {
   --background: #111112;
   --foreground: #EFEFED;
-  --surface: #1C1C1E;
+  --surface: #1E1E1F;
   --surface-alt: #242426;
   --border: #2C2C2E;
   --muted-text: #68686E;
-  --card: #1C1C1E;
+  --card: #1E1E1F;
   --card-foreground: #EFEFED;
   --primary: #EFEFED;
   --primary-foreground: #111112;
-  --secondary: #1C1C1E;
+  --secondary: #1E1E1F;
   --secondary-foreground: #EFEFED;
-  --muted: #1C1C1E;
+  --muted: #1E1E1F;
   --muted-foreground: #68686E;
-  --accent: #1C1C1E;
+  --accent: #1E1E1F;
   --accent-foreground: #EFEFED;
   --destructive: oklch(0.704 0.191 22.216);
   --input: #2C2C2E;
   --ring: #FF4F00;
-  --popover: #1C1C1E;
+  --popover: #1E1E1F;
   --popover-foreground: #EFEFED;
 }
 
@@ -139,6 +139,6 @@
 
 /* Safety Orange glow */
 .orange-glow {
-  color: #FF4500;
-  text-shadow: 0 0 10px rgba(255,69,0,0.28);
+  color: #FF4F00;
+  text-shadow: 0 0 10px rgba(255,79,0,0.28);
 }

@@ -36,7 +36,7 @@ export function DashboardSidebar() {
         <Link href="/" className="flex items-center gap-2 group">
           <div
             className="w-7 h-7 rounded-md flex items-center justify-center"
-            style={{ backgroundColor: '#FF4500' }}
+            style={{ backgroundColor: '#FF4F00' }}
           >
             <Zap className="w-4 h-4 text-white" />
           </div>

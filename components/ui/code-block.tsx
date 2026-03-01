@@ -59,7 +59,7 @@ export function CodeBlock({ tabs, className = '' }: CodeBlockProps) {
         <button
           onClick={handleCopy}
           className="ml-auto mr-4 flex items-center gap-1.5 text-xs py-1.5 px-3 rounded transition-colors"
-          style={{ color: copied ? '#FF4500' : '#555553' }}
+          style={{ color: copied ? '#FF4F00' : '#555553' }}
           title="Copy code"
         >
           {copied ? (

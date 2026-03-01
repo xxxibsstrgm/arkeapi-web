@@ -65,7 +65,7 @@ export function TableOfContents({ headings }: { headings: Heading[] }) {
                 style={{
                   paddingLeft: h.level === 3 ? '1.5rem' : '0.75rem',
                   color: isActive ? 'var(--foreground)' : 'var(--muted-text)',
-                  borderLeft: isActive ? '2px solid #FF4500' : '2px solid transparent',
+                  borderLeft: isActive ? '2px solid #FF4F00' : '2px solid transparent',
                 }}
                 onClick={e => {
                   e.preventDefault()

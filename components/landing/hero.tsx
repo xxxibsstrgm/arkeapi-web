@@ -65,7 +65,7 @@ export function Hero() {
           <div className="order-1 lg:order-2">
             <p
               className="text-xs font-bold uppercase mb-6"
-              style={{ color: '#FF4500', letterSpacing: '0.12em', textShadow: '0 0 10px rgba(255,69,0,0.25)' }}
+              style={{ color: '#FF4F00', letterSpacing: '0.12em', textShadow: '0 0 10px rgba(255,79,0,0.25)' }}
             >
               OpenAI-Compatible · 15+ Models
             </p>
@@ -81,7 +81,7 @@ export function Hero() {
             >
               One key.<br />
               Every model.<br />
-              <span style={{ color: '#FF4500' }}>Zero limits.</span>
+              <span style={{ color: '#FF4F00' }}>Zero limits.</span>
             </h1>
 
             <p
@@ -95,7 +95,7 @@ export function Hero() {
               <Link
                 href="/dashboard"
                 className="inline-flex items-center h-12 px-8 text-sm font-bold text-white rounded-full transition-opacity hover:opacity-88"
-                style={{ backgroundColor: '#FF4500', letterSpacing: '-0.005em' }}
+                style={{ backgroundColor: '#FF4F00', letterSpacing: '-0.005em' }}
               >
                 Get Started →
               </Link>

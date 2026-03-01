@@ -46,7 +46,7 @@ export function Why() {
         <div className="text-center mb-14">
           <p
             className="uppercase mb-4"
-            style={{ fontSize: '12px', color: '#FF4500', letterSpacing: '0.15em', textShadow: '0 0 10px rgba(255,69,0,0.25)' }}
+            style={{ fontSize: '12px', color: '#FF4F00', letterSpacing: '0.15em', textShadow: '0 0 10px rgba(255,79,0,0.25)' }}
           >
             Why ArkeAPI
           </p>
@@ -74,8 +74,8 @@ export function Why() {
                 style={{
                   backgroundColor: 'var(--background)',
                   borderColor: 'var(--border)',
-                  color: '#FF4500',
-                  textShadow: '0 0 8px rgba(255,69,0,0.2)',
+                  color: '#FF4F00',
+                  textShadow: '0 0 8px rgba(255,79,0,0.2)',
                 }}
               >
                 {item.code}

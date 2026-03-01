@@ -54,7 +54,7 @@ export function UseCases() {
         <div className="text-center mb-14">
           <p
             className="uppercase mb-4"
-            style={{ fontSize: '12px', color: '#FF4500', letterSpacing: '0.15em', textShadow: '0 0 10px rgba(255,69,0,0.25)' }}
+            style={{ fontSize: '12px', color: '#FF4F00', letterSpacing: '0.15em', textShadow: '0 0 10px rgba(255,79,0,0.25)' }}
           >
             Get started in minutes
           </p>
@@ -76,7 +76,7 @@ export function UseCases() {
               {/* Icon */}
               <div
                 className="w-11 h-11 rounded-lg flex items-center justify-center mb-6 shrink-0"
-                style={{ backgroundColor: 'rgba(255,69,0,0.1)', color: '#FF4500' }}
+                style={{ backgroundColor: 'rgba(255,79,0,0.1)', color: '#FF4F00' }}
               >
                 {c.icon}
               </div>
@@ -84,7 +84,7 @@ export function UseCases() {
               {/* Tag */}
               <p
                 className="text-xs font-bold uppercase mb-2"
-                style={{ color: '#FF4500', letterSpacing: '0.1em' }}
+                style={{ color: '#FF4F00', letterSpacing: '0.1em' }}
               >
                 {c.tag}
               </p>
@@ -105,8 +105,8 @@ export function UseCases() {
                 style={{
                   backgroundColor: 'var(--background)',
                   borderColor: 'var(--border)',
-                  color: '#FF4500',
-                  textShadow: '0 0 8px rgba(255,69,0,0.2)',
+                  color: '#FF4F00',
+                  textShadow: '0 0 8px rgba(255,79,0,0.2)',
                 }}
               >
                 {c.code}

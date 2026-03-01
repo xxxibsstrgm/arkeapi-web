@@ -45,7 +45,7 @@ export function Announcements() {
         <div className="text-center mb-14">
           <p
             className="uppercase mb-4"
-            style={{ fontSize: '12px', color: '#FF4500', letterSpacing: '0.15em', textShadow: '0 0 10px rgba(255,69,0,0.25)' }}
+            style={{ fontSize: '12px', color: '#FF4F00', letterSpacing: '0.15em', textShadow: '0 0 10px rgba(255,79,0,0.25)' }}
           >
             Announcements
           </p>
@@ -101,7 +101,7 @@ export function Announcements() {
                 className="inline-block text-xs font-bold uppercase px-2.5 py-1 rounded mb-6"
                 style={{
                   backgroundColor: 'rgba(255,61,0,0.18)',
-                  color: '#FF4500',
+                  color: '#FF4F00',
                   letterSpacing: '0.08em',
                 }}
               >
@@ -129,7 +129,7 @@ export function Announcements() {
               </span>
               <span
                 className="text-sm font-medium flex items-center gap-1.5 group-hover:gap-2.5 transition-all"
-                style={{ color: '#FF4500' }}
+                style={{ color: '#FF4F00' }}
               >
                 Read more <span>→</span>
               </span>

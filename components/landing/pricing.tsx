@@ -37,7 +37,7 @@ export function Pricing() {
         <div className="text-center mb-14">
           <p
             className="uppercase mb-4"
-            style={{ fontSize: '12px', color: '#FF4500', letterSpacing: '0.15em', textShadow: '0 0 10px rgba(255,69,0,0.25)' }}
+            style={{ fontSize: '12px', color: '#FF4F00', letterSpacing: '0.15em', textShadow: '0 0 10px rgba(255,79,0,0.25)' }}
           >
             Pricing
           </p>
@@ -58,14 +58,14 @@ export function Pricing() {
             <div key={plan.id} className="metal-card relative p-8 rounded-lg border cursor-default"
               style={{
                 backgroundColor: 'var(--surface)',
-                borderColor: plan.highlighted ? '#FF4500' : 'var(--border)',
+                borderColor: plan.highlighted ? '#FF4F00' : 'var(--border)',
                 boxShadow: plan.highlighted
-                  ? '0 0 0 1px #FF4500, inset 0 1px 0 rgba(255,255,255,0.72)'
+                  ? '0 0 0 1px #FF4F00, inset 0 1px 0 rgba(255,255,255,0.72)'
                   : 'inset 0 1px 0 rgba(255,255,255,0.72), inset 0 -1px 0 rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.04)',
               }}>
               {plan.highlighted && (
                 <div className="absolute -top-3 left-8 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-white rounded"
-                  style={{ backgroundColor: '#FF4500', letterSpacing: '0.06em' }}>
+                  style={{ backgroundColor: '#FF4F00', letterSpacing: '0.06em' }}>
                   Most Popular
                 </div>
               )}
@@ -92,7 +92,7 @@ export function Pricing() {
               <ul className="space-y-2.5 mb-8">
                 {plan.models.map((model) => (
                   <li key={model} className="flex items-center gap-3">
-                    <Check className="w-3.5 h-3.5 shrink-0" style={{ color: '#FF4500' }} />
+                    <Check className="w-3.5 h-3.5 shrink-0" style={{ color: '#FF4F00' }} />
                     <span className="font-mono text-xs">{model}</span>
                   </li>
                 ))}
@@ -103,7 +103,7 @@ export function Pricing() {
                 disabled={loading !== null}
                 className="w-full h-11 rounded text-sm font-medium transition-opacity hover:opacity-90 disabled:opacity-60"
                 style={{
-                  backgroundColor: plan.highlighted ? '#FF4500' : 'var(--foreground)',
+                  backgroundColor: plan.highlighted ? '#FF4F00' : 'var(--foreground)',
                   color: plan.highlighted ? '#FFFFFF' : 'var(--background)',
                 }}>
                 {loading === plan.priceId ? 'Redirecting...' : plan.cta}
@@ -118,7 +118,7 @@ export function Pricing() {
           Pricing is based on model ratios. Higher-tier models (GPT-4o, Claude 3.5) consume quota faster than lightweight models (GPT-4o-mini, Gemini Flash).
           Check our{' '}
           <a href="https://api.arkeapi.com" target="_blank" rel="noopener noreferrer"
-            className="underline underline-offset-2" style={{ color: '#FF4500' }}>
+            className="underline underline-offset-2" style={{ color: '#FF4F00' }}>
             Model Plaza
           </a>
           {' '}for real-time model status and current ratios.
