@@ -1,7 +1,8 @@
 'use client'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useTheme } from 'next-themes'
-import { Sun, Moon, Globe, Zap, Menu, X } from 'lucide-react'
+import { Sun, Moon, Globe, Menu, X } from 'lucide-react'
 import { useState } from 'react'
 
 const LANGUAGES = [
@@ -33,14 +34,15 @@ export function Navbar() {
       <div className="max-w-[1440px] mx-auto px-5 sm:px-10 h-16 flex items-center justify-between">
 
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 shrink-0">
-          <div className="w-7 h-7 rounded-lg flex items-center justify-center"
-            style={{ backgroundColor: '#FF4F00' }}>
-            <Zap className="w-4 h-4 text-white" />
-          </div>
-          <span className="text-base font-bold" style={{ letterSpacing: '-0.02em' }}>
-            ArkeAPI
-          </span>
+        <Link href="/" className="logo-link shrink-0">
+          <Image
+            src="/logo.png"
+            alt="Arke"
+            width={62}
+            height={32}
+            className="logo-img"
+            priority
+          />
         </Link>
 
         {/* Right nav — desktop */}

@@ -140,6 +140,53 @@
   box-shadow: 0 12px 32px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08);
 }
 
+/* ─── Navbar logo ─── */
+/* invert(1) makes white bg → black (invisible on dark navbar), dark text → white */
+/* mix-blend-mode: screen blends the black background away entirely */
+.logo-img {
+  filter: invert(1);
+  mix-blend-mode: screen;
+  transition: filter 0.3s ease;
+  display: block;
+}
+.logo-link {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 3px;
+}
+/* Hover: shift to brand orange + glow */
+.logo-link:hover .logo-img {
+  filter: invert(1) sepia(1) saturate(10) hue-rotate(345deg) brightness(1.1)
+          drop-shadow(0 0 10px rgba(255,79,0,0.55));
+}
+/* Scan shimmer — sweeps once on hover */
+.logo-link::after {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: -90%;
+  width: 45%;
+  height: 120%;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    rgba(255,255,255,0.22) 45%,
+    rgba(255,255,255,0.28) 50%,
+    rgba(255,255,255,0.22) 55%,
+    transparent 100%
+  );
+  pointer-events: none;
+  transform: skewX(-12deg);
+}
+.logo-link:hover::after {
+  animation: logo-scan 0.55s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+@keyframes logo-scan {
+  from { left: -90%; }
+  to   { left: 140%; }
+}
+
 /* Quote icon: matte black in light, etched silver in dark */
 .quote-mark { color: rgba(26,26,24,0.75); }
 .dark .quote-mark { color: rgba(255,255,255,0.14); }
