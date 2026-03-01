@@ -65,7 +65,8 @@ export function Announcements() {
         </div>
 
         {/* Featured post */}
-        <Link href={FEATURED.href} className="group block mb-5 rounded-2xl overflow-hidden relative"
+        <Link href={FEATURED.href}
+          className="dark-card group block mb-5 rounded-2xl overflow-hidden relative"
           style={{
             backgroundColor: '#111110',
             border: '1px solid #2A2A28',
@@ -143,14 +144,13 @@ export function Announcements() {
             <Link
               key={post.title}
               href={post.href}
-              className="group flex flex-col justify-between p-7 rounded-xl border transition-colors hover:border-current"
+              className="metal-card group flex flex-col justify-between p-7 rounded-xl border"
               style={{
                 backgroundColor: 'var(--surface)',
                 borderColor: 'var(--border)',
               }}
             >
               <div>
-                {/* Excerpt preview — muted, small */}
                 <p
                   className="text-xs leading-relaxed mb-5 line-clamp-2"
                   style={{ color: 'var(--muted-text)' }}

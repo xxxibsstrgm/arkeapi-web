@@ -2,30 +2,6 @@
 import { useCheckout } from '@/hooks/use-checkout'
 import { PLANS } from '@/lib/plans'
 import { Check } from 'lucide-react'
-import { CodeBlock } from '@/components/ui/code-block'
-
-const CURL_HTML = `<span style="color:#82aaff">curl</span> https://api.arkeapi.com/v1/chat/completions \\
-  -H <span style="color:#c3e88d">"Authorization: Bearer sk-arke-..."</span> \\
-  -H <span style="color:#c3e88d">"Content-Type: application/json"</span> \\
-  -d <span style="color:#c3e88d">'{"model": "gpt-4o-mini", "messages": [{"role": "user", "content": "Hello"}]}'</span>`
-
-const PYTHON_HTML = `<span style="color:#c792ea">from</span> openai <span style="color:#c792ea">import</span> OpenAI
-
-client = OpenAI(
-    base_url=<span style="color:#c3e88d">"https://api.arkeapi.com/v1"</span>,
-    api_key=<span style="color:#c3e88d">"sk-arke-..."</span>,
-)
-
-response = client.chat.completions.create(
-    model=<span style="color:#c3e88d">"gpt-4o-mini"</span>,
-    messages=[{<span style="color:#c3e88d">"role"</span>: <span style="color:#c3e88d">"user"</span>, <span style="color:#c3e88d">"content"</span>: <span style="color:#c3e88d">"Hello!"</span>}],
-)
-<span style="color:#82aaff">print</span>(response.choices[<span style="color:#f78c6c">0</span>].message.content)`
-
-const QUICK_START_TABS = [
-  { lang: 'cURL', code: CURL_HTML },
-  { lang: 'Python', code: PYTHON_HTML },
-]
 
 export function Pricing() {
   const { checkout, loading, error } = useCheckout()
@@ -122,11 +98,6 @@ export function Pricing() {
             Model Plaza
           </a>
           {' '}for real-time model status and current ratios.
-        </div>
-
-        {/* Quick start code block */}
-        <div className="mt-10">
-          <CodeBlock tabs={QUICK_START_TABS} />
         </div>
 
         {error && (

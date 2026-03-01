@@ -102,17 +102,18 @@
 
 /* ─── Precision metallic card — light mode ─── */
 .metal-card {
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,0.80),
     inset 0 -1px 0 rgba(0,0,0,0.03);
 }
 .metal-card:hover {
-  transform: translateY(-1px);
+  transform: translateY(-4px);
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,0.95),
     inset 0 -1px 0 rgba(0,0,0,0.04),
-    0 0 0 1px rgba(0,0,0,0.04);
+    0 12px 32px rgba(0,0,0,0.10),
+    0 0 0 1px rgba(0,0,0,0.06);
 }
 
 /* Dark mode — titanium rim lighting only, no blur */
@@ -122,11 +123,21 @@
     inset 0 -1px 0 rgba(0,0,0,0.4);
 }
 .dark .metal-card:hover {
-  transform: translateY(-1px);
+  transform: translateY(-4px);
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.11),
+    inset 0 1px 0 rgba(255,255,255,0.13),
     inset 0 -1px 0 rgba(0,0,0,0.5),
-    0 0 0 1px rgba(255,255,255,0.04);
+    0 12px 32px rgba(0,0,0,0.45),
+    0 0 0 1px rgba(255,255,255,0.07);
+}
+
+/* Dark featured card hover (e.g. Announcements hero card) */
+.dark-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.dark-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08);
 }
 
 /* Quote icon: matte black in light, etched silver in dark */
