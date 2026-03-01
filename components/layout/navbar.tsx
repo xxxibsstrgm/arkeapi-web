@@ -35,16 +35,14 @@ export function Navbar() {
 
         {/* Logo */}
         <Link href="/" className="logo-link shrink-0">
-          <div className="logo-pill">
-            <Image
-              src="/logo.png"
-              alt="Arke"
-              width={88}
-              height={46}
-              className="logo-img"
-              priority
-            />
-          </div>
+          <Image
+            src="/logo.png"
+            alt="Arke"
+            width={88}
+            height={46}
+            className="logo-img"
+            priority
+          />
         </Link>
 
         {/* Right nav — desktop */}

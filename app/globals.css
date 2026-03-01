@@ -141,18 +141,14 @@
 }
 
 /* ─── Logo (navbar + footer) ─── */
-/* PNG has transparent bg + #0d0a0b text. Bone pill makes it visible on dark bg. */
-.logo-pill {
-  background: #F5F0E0;
-  border-radius: 7px;
-  padding: 5px 10px;
-  display: inline-flex;
-  align-items: center;
-  transition: box-shadow 0.25s ease, background 0.25s ease;
-}
+/* PNG has transparent bg + #0d0a0b text. Dark mode: invert to #f8f7f2. */
 .logo-img {
   display: block;
+  filter: none;
   transition: filter 0.25s ease;
+}
+.dark .logo-img {
+  filter: invert(1) brightness(1.025);
 }
 .logo-link {
   position: relative;
@@ -164,10 +160,6 @@
 .logo-link:hover .logo-img {
   animation: logo-activate 0.55s ease forwards;
 }
-.logo-link:hover .logo-pill {
-  background: #FFF3EC;
-  box-shadow: 0 0 0 1px rgba(255,79,0,0.3), 0 4px 20px rgba(255,79,0,0.18);
-}
 @keyframes logo-activate {
   0%   { filter: none; }
   7%   { filter: brightness(4) saturate(0); }
@@ -176,6 +168,20 @@
   36%  { filter: brightness(0.5); }
   50%  { filter: brightness(2) saturate(5) hue-rotate(120deg); }
   62%  { filter: none; }
+  100% { filter: sepia(1) saturate(8) hue-rotate(345deg) brightness(1.15)
+                 drop-shadow(0 0 10px rgba(255,79,0,0.7)); }
+}
+.dark .logo-link:hover .logo-img {
+  animation: logo-activate-dark 0.55s ease forwards;
+}
+@keyframes logo-activate-dark {
+  0%   { filter: invert(1) brightness(1.025); }
+  7%   { filter: brightness(4) saturate(0); }
+  16%  { filter: brightness(0.3); }
+  26%  { filter: brightness(2.5) saturate(8) hue-rotate(200deg); }
+  36%  { filter: brightness(0.5); }
+  50%  { filter: brightness(2) saturate(5) hue-rotate(120deg); }
+  62%  { filter: invert(1) brightness(1.025); }
   100% { filter: sepia(1) saturate(8) hue-rotate(345deg) brightness(1.15)
                  drop-shadow(0 0 10px rgba(255,79,0,0.7)); }
 }
