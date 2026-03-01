@@ -31,7 +31,14 @@ export function Pricing() {
   const { checkout, loading, error } = useCheckout()
 
   return (
-    <section id="pricing" className="border-t" style={{ borderColor: 'var(--border)' }}>
+    <section
+      id="pricing"
+      className="border-t"
+      style={{
+        borderColor: 'var(--border)',
+        background: 'linear-gradient(180deg, #0D0D0E 0%, #111112 50%, #131315 100%)',
+      }}
+    >
       <div className="max-w-[1440px] mx-auto px-10 py-20">
         {/* Section header */}
         <div className="text-center mb-14">

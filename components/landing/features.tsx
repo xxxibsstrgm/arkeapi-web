@@ -48,7 +48,13 @@ export function Features() {
   const active = FEATURES[activeIdx]
 
   return (
-    <section className="border-t" style={{ borderColor: 'var(--border)' }}>
+    <section
+      className="border-t"
+      style={{
+        borderColor: 'var(--border)',
+        background: 'linear-gradient(135deg, #131316 0%, #111112 50%, #0F0F11 100%)',
+      }}
+    >
       <div className="max-w-[1440px] mx-auto px-10 py-20">
 
         {/* Section header */}

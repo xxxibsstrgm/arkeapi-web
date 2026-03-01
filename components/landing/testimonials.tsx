@@ -38,7 +38,10 @@ export function Testimonials() {
   return (
     <section
       className="border-t overflow-hidden"
-      style={{ borderColor: 'var(--border)', backgroundColor: 'var(--background)' }}
+      style={{
+        borderColor: 'var(--border)',
+        background: 'linear-gradient(180deg, #111112 0%, #141416 60%, #111112 100%)',
+      }}
     >
       <div className="py-20">
 
