@@ -49,7 +49,7 @@ export function Features() {
 
   return (
     <section className="border-t" style={{ borderColor: 'var(--border)' }}>
-      <div className="max-w-[1440px] mx-auto px-10 py-20">
+      <div className="max-w-[1440px] mx-auto px-5 sm:px-10 py-14 sm:py-20">
 
         {/* Section header */}
         <div className="text-center mb-14">
@@ -60,7 +60,7 @@ export function Features() {
             Developer-first
           </p>
           <h2
-            style={{ fontSize: '46px', letterSpacing: '-0.025em', lineHeight: 1.1, fontWeight: 400 }}
+            style={{ fontSize: 'clamp(1.9rem, 5vw, 2.875rem)', letterSpacing: '-0.025em', lineHeight: 1.1, fontWeight: 400 }}
           >
             Built for developers who ship fast.
           </h2>

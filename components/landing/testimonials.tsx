@@ -43,7 +43,7 @@ export function Testimonials() {
       <div className="py-20">
 
         {/* Header — centered */}
-        <div className="text-center mb-14 px-10">
+        <div className="text-center mb-10 sm:mb-14 px-5 sm:px-10">
           <p
             className="uppercase mb-4"
             style={{ fontSize: '12px', color: '#FF4F00', letterSpacing: '0.15em', textShadow: '0 0 10px rgba(255,79,0,0.25)' }}
@@ -51,7 +51,7 @@ export function Testimonials() {
             Don&apos;t take our word for it.
           </p>
           <h2
-            style={{ fontSize: '46px', letterSpacing: '-0.025em', lineHeight: 1.1, fontWeight: 400 }}
+            style={{ fontSize: 'clamp(1.9rem, 5vw, 2.875rem)', letterSpacing: '-0.025em', lineHeight: 1.1, fontWeight: 400 }}
           >
             Proof from the people shipping.
           </h2>

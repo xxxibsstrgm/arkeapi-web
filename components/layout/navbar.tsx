@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { useTheme } from 'next-themes'
-import { Sun, Moon, Globe, Zap } from 'lucide-react'
+import { Sun, Moon, Globe, Zap, Menu, X } from 'lucide-react'
 import { useState } from 'react'
 
 const LANGUAGES = [
@@ -13,9 +13,16 @@ const LANGUAGES = [
   { code: 'es',    label: 'Español' },
 ]
 
+const NAV_LINKS = [
+  { href: '#pricing', label: 'Pricing' },
+  { href: '/docs', label: 'Docs' },
+  { href: '/dashboard', label: 'Dashboard' },
+]
+
 export function Navbar() {
   const { theme, setTheme } = useTheme()
   const [langOpen, setLangOpen] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
   const [currentLang, setCurrentLang] = useState('en')
 
   return (
@@ -23,7 +30,7 @@ export function Navbar() {
       className="sticky top-0 z-50 border-b backdrop-blur-md"
       style={{ backgroundColor: 'var(--background)', borderColor: 'var(--border)' }}
     >
-      <div className="max-w-[1440px] mx-auto px-10 h-16 flex items-center justify-between">
+      <div className="max-w-[1440px] mx-auto px-5 sm:px-10 h-16 flex items-center justify-between">
 
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 shrink-0">
@@ -36,24 +43,16 @@ export function Navbar() {
           </span>
         </Link>
 
-        {/* Right nav */}
-        <div className="flex items-center gap-1">
-          <nav className="hidden md:flex items-center gap-7 mr-4">
-            <Link href="#pricing"
-              className="text-sm font-medium transition-opacity hover:opacity-60"
-              style={{ color: 'var(--foreground)' }}>
-              Pricing
-            </Link>
-            <Link href="/docs"
-              className="text-sm font-medium transition-opacity hover:opacity-60"
-              style={{ color: 'var(--foreground)' }}>
-              Docs
-            </Link>
-            <Link href="/dashboard"
-              className="text-sm font-medium transition-opacity hover:opacity-60"
-              style={{ color: 'var(--foreground)' }}>
-              Dashboard
-            </Link>
+        {/* Right nav — desktop */}
+        <div className="hidden md:flex items-center gap-1">
+          <nav className="flex items-center gap-7 mr-4">
+            {NAV_LINKS.map((l) => (
+              <Link key={l.href} href={l.href}
+                className="text-sm font-medium transition-opacity hover:opacity-60"
+                style={{ color: 'var(--foreground)' }}>
+                {l.label}
+              </Link>
+            ))}
           </nav>
 
           <div className="relative">
@@ -63,7 +62,7 @@ export function Navbar() {
               style={{ color: 'var(--muted-text)' }}
             >
               <Globe className="w-4 h-4" />
-              <span className="hidden md:inline text-xs font-semibold">
+              <span className="text-xs font-semibold">
                 {currentLang === 'en' ? 'EN' : currentLang.slice(0,2).toUpperCase()}
               </span>
             </button>
@@ -97,7 +96,49 @@ export function Navbar() {
           </Link>
         </div>
 
+        {/* Mobile right — theme toggle + hamburger */}
+        <div className="flex md:hidden items-center gap-1">
+          <button
+            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            className="h-9 w-9 flex items-center justify-center rounded-lg transition-opacity hover:opacity-60"
+            style={{ color: 'var(--muted-text)' }}
+          >
+            {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+          </button>
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="h-9 w-9 flex items-center justify-center rounded-lg transition-opacity hover:opacity-60"
+            style={{ color: 'var(--foreground)' }}
+          >
+            {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+        </div>
       </div>
+
+      {/* Mobile menu dropdown */}
+      {menuOpen && (
+        <div
+          className="md:hidden border-t"
+          style={{ backgroundColor: 'var(--background)', borderColor: 'var(--border)' }}
+        >
+          <div className="px-5 py-4 flex flex-col gap-1">
+            {NAV_LINKS.map((l) => (
+              <Link key={l.href} href={l.href}
+                onClick={() => setMenuOpen(false)}
+                className="text-sm font-medium py-3 border-b transition-opacity hover:opacity-60"
+                style={{ color: 'var(--foreground)', borderColor: 'var(--border)' }}>
+                {l.label}
+              </Link>
+            ))}
+            <Link href="/dashboard"
+              onClick={() => setMenuOpen(false)}
+              className="mt-3 h-11 rounded-full text-sm font-bold text-white flex items-center justify-center transition-opacity hover:opacity-88"
+              style={{ backgroundColor: '#FF4F00' }}>
+              Dashboard
+            </Link>
+          </div>
+        </div>
+      )}
     </header>
   )
 }

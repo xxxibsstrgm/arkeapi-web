@@ -87,8 +87,8 @@ export function ModelLogos() {
     >
       {/* Left label — fixed, Groq-style */}
       <div
-        className="shrink-0 flex flex-col justify-center px-8 py-5 border-r"
-        style={{ borderColor: 'var(--border)', minWidth: '200px', maxWidth: '200px' }}
+        className="hidden sm:flex shrink-0 flex-col justify-center px-8 py-5 border-r"
+        style={{ borderColor: 'var(--border)', minWidth: '160px', maxWidth: '200px' }}
       >
         <p
           className="text-xs font-bold uppercase leading-tight"

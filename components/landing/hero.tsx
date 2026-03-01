@@ -56,7 +56,7 @@ export function Hero() {
       className="min-h-[88vh] flex items-center border-b"
       style={{ borderColor: 'var(--border)' }}
     >
-      <div className="w-full max-w-[1440px] mx-auto px-10 py-20">
+      <div className="w-full max-w-[1440px] mx-auto px-5 sm:px-10 py-14 sm:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-12 lg:gap-20 items-center">
 
           {/* Left: Flat code card */}
