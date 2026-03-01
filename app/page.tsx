@@ -1,6 +1,7 @@
 import { Navbar } from '@/components/layout/navbar'
 import { Hero } from '@/components/landing/hero'
 import { ModelLogos } from '@/components/landing/model-logos'
+import { UseCases } from '@/components/landing/use-cases'
 import { Features } from '@/components/landing/features'
 import { Why } from '@/components/landing/why'
 import { Testimonials } from '@/components/landing/testimonials'
@@ -14,6 +15,7 @@ export default function HomePage() {
       <Navbar />
       <Hero />
       <ModelLogos />
+      <UseCases />
       <Why />
       <Pricing />
       <Features />

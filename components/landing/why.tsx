@@ -20,7 +20,7 @@ const WHY_ITEMS = [
   {
     title: 'Low-Latency Edge Network',
     description:
-      'Global edge routing with sub-60ms median latency, optimized for developers across Asia-Pacific.',
+      'Global edge routing with sub-60ms median latency. Fast responses wherever you are.',
     code: 'latency: <60ms p50',
   },
   {
@@ -33,7 +33,7 @@ const WHY_ITEMS = [
     title: 'Real-time Usage Tracking',
     description:
       'Monitor token consumption per model in your dashboard. Understand costs before they surprise you.',
-    code: 'dashboard: api.arkeapi.com',
+    code: 'dashboard: arkeapi.com/dashboard',
   },
 ]
 
@@ -53,7 +53,7 @@ export function Why() {
           <h2
             style={{ fontSize: '46px', letterSpacing: '-0.025em', lineHeight: 1.1, fontWeight: 400 }}
           >
-            Built for developers who ship fast.
+            One platform. Every model. Any workflow.
           </h2>
         </div>
 

@@ -110,7 +110,7 @@ export function Footer() {
             © {new Date().getFullYear()} ArkeAPI. All rights reserved.
           </p>
           <p className="text-xs" style={{ color: 'var(--muted-text)' }}>
-            Global edge network · Asia-Pacific optimized
+            Fast · Reliable · Universal
           </p>
         </div>
       </div>
