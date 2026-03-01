@@ -140,47 +140,66 @@
   box-shadow: 0 12px 32px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08);
 }
 
-/* ─── Navbar logo ─── */
-/* invert(1) makes white bg → black (invisible on dark navbar), dark text → white */
-/* mix-blend-mode: screen blends the black background away entirely */
+/* ─── Logo (navbar + footer) ─── */
+/* PNG has transparent bg + #0d0a0b text. Bone pill makes it visible on dark bg. */
+.logo-pill {
+  background: #F5F0E0;
+  border-radius: 7px;
+  padding: 5px 10px;
+  display: inline-flex;
+  align-items: center;
+  transition: box-shadow 0.25s ease, background 0.25s ease;
+}
 .logo-img {
-  filter: invert(1);
-  mix-blend-mode: screen;
-  transition: filter 0.3s ease;
   display: block;
+  transition: filter 0.25s ease;
 }
 .logo-link {
   position: relative;
   display: inline-block;
   overflow: hidden;
-  border-radius: 3px;
+  border-radius: 7px;
 }
-/* Hover: shift to brand orange + glow */
+/* Hover: AI power-up — flash → color glitch → settle orange */
 .logo-link:hover .logo-img {
-  filter: invert(1) sepia(1) saturate(10) hue-rotate(345deg) brightness(1.1)
-          drop-shadow(0 0 10px rgba(255,79,0,0.55));
+  animation: logo-activate 0.55s ease forwards;
 }
-/* Scan shimmer — sweeps once on hover */
+.logo-link:hover .logo-pill {
+  background: #FFF3EC;
+  box-shadow: 0 0 0 1px rgba(255,79,0,0.3), 0 4px 20px rgba(255,79,0,0.18);
+}
+@keyframes logo-activate {
+  0%   { filter: none; }
+  7%   { filter: brightness(4) saturate(0); }
+  16%  { filter: brightness(0.3); }
+  26%  { filter: brightness(2.5) saturate(8) hue-rotate(200deg); }
+  36%  { filter: brightness(0.5); }
+  50%  { filter: brightness(2) saturate(5) hue-rotate(120deg); }
+  62%  { filter: none; }
+  100% { filter: sepia(1) saturate(8) hue-rotate(345deg) brightness(1.15)
+                 drop-shadow(0 0 10px rgba(255,79,0,0.7)); }
+}
+/* Double scan shimmer on hover */
 .logo-link::after {
   content: '';
   position: absolute;
   top: -10%;
   left: -90%;
-  width: 45%;
+  width: 38%;
   height: 120%;
   background: linear-gradient(
     105deg,
     transparent 0%,
-    rgba(255,255,255,0.22) 45%,
-    rgba(255,255,255,0.28) 50%,
-    rgba(255,255,255,0.22) 55%,
+    rgba(255,255,255,0.28) 44%,
+    rgba(255,255,255,0.45) 50%,
+    rgba(255,255,255,0.28) 56%,
     transparent 100%
   );
   pointer-events: none;
   transform: skewX(-12deg);
 }
 .logo-link:hover::after {
-  animation: logo-scan 0.55s cubic-bezier(0.4,0,0.2,1) forwards;
+  animation: logo-scan 0.2s linear 0s 2 forwards;
 }
 @keyframes logo-scan {
   from { left: -90%; }
