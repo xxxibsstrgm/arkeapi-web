@@ -1,7 +1,8 @@
+'use client'
 import Link from 'next/link'
-import { CodeBlock } from '@/components/ui/code-block'
+import { useState } from 'react'
 
-const PYTHON_CODE = `<span style="color:rgba(255,255,255,0.3)"># Drop-in replacement — change one line</span>
+const PYTHON_CODE = `<span style="color:rgba(255,255,255,0.28)"># Drop-in replacement — change one line</span>
 <span style="color:#c792ea">from</span> openai <span style="color:#c792ea">import</span> OpenAI
 
 client = OpenAI(
@@ -18,9 +19,9 @@ response = client.chat.completions.create(
 )
 
 <span style="color:#82aaff">print</span>(response.choices[<span style="color:#f78c6c">0</span>].message.content)
-<span style="color:rgba(255,255,255,0.3)"># &gt; Hello! How can I help you today?</span>`
+<span style="color:rgba(255,255,255,0.28)"># &gt; Hello! How can I help you today?</span>`
 
-const JS_CODE = `<span style="color:rgba(255,255,255,0.3)">// Drop-in replacement — change one line</span>
+const JS_CODE = `<span style="color:rgba(255,255,255,0.28)">// Drop-in replacement — change one line</span>
 <span style="color:#c792ea">import</span> OpenAI <span style="color:#c792ea">from</span> <span style="color:#c3e88d">"openai"</span>;
 
 <span style="color:#82aaff">const</span> client = <span style="color:#82aaff">new</span> OpenAI({
@@ -34,7 +35,7 @@ const JS_CODE = `<span style="color:rgba(255,255,255,0.3)">// Drop-in replacemen
 });
 
 console.<span style="color:#82aaff">log</span>(response.choices[<span style="color:#f78c6c">0</span>].message.content);
-<span style="color:rgba(255,255,255,0.3)">// &gt; Hello! How can I help you today?</span>`
+<span style="color:rgba(255,255,255,0.28)">// &gt; Hello! How can I help you today?</span>`
 
 const TABS = [
   { lang: 'Python', code: PYTHON_CODE },
@@ -48,6 +49,8 @@ const STATS = [
 ]
 
 export function Hero() {
+  const [activeTab, setActiveTab] = useState(0)
+
   return (
     <section
       className="min-h-[88vh] flex items-center border-b"
@@ -56,9 +59,44 @@ export function Hero() {
       <div className="w-full max-w-[1440px] mx-auto px-10 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-12 lg:gap-20 items-center">
 
-          {/* Left: Code block */}
+          {/* Left: Flat code card */}
           <div className="order-2 lg:order-1">
-            <CodeBlock tabs={TABS} />
+            <div
+              className="rounded-xl overflow-hidden"
+              style={{
+                backgroundColor: '#111112',
+                border: '1px solid rgba(255,255,255,0.07)',
+                boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.06)',
+              }}
+            >
+              {/* Minimal tab row */}
+              <div
+                className="flex items-center gap-0 px-5 pt-4 pb-0"
+                style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}
+              >
+                {TABS.map((t, i) => (
+                  <button
+                    key={t.lang}
+                    onClick={() => setActiveTab(i)}
+                    className="px-3 pb-3 text-xs font-mono font-medium transition-colors"
+                    style={{
+                      color: i === activeTab ? '#EFEFED' : 'rgba(255,255,255,0.3)',
+                      borderBottom: i === activeTab ? '1px solid #FF4F00' : '1px solid transparent',
+                      marginBottom: '-1px',
+                    }}
+                  >
+                    {t.lang}
+                  </button>
+                ))}
+              </div>
+
+              {/* Code */}
+              <pre
+                className="px-6 py-5 text-sm font-mono leading-[1.85] overflow-x-auto"
+                style={{ color: 'rgba(255,255,255,0.75)' }}
+                dangerouslySetInnerHTML={{ __html: TABS[activeTab].code }}
+              />
+            </div>
           </div>
 
           {/* Right: Content */}

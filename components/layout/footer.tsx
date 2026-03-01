@@ -40,13 +40,7 @@ export function Footer() {
                   Dashboard
                 </Link>
               </li>
-              <li>
-                <a href="https://openclaw.ai" target="_blank" rel="noopener noreferrer"
-                  className="text-sm transition-colors hover:opacity-80"
-                  style={{ color: 'var(--muted-text)' }}>
-                  OpenClaw
-                </a>
-              </li>
+
             </ul>
           </div>
 
