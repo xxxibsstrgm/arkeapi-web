@@ -141,52 +141,44 @@
 }
 
 /* ─── Logo (navbar + footer) ─── */
-/* PNG has transparent bg + #0d0a0b text. Dark mode: invert to #f8f7f2. */
+/* PNG has transparent bg + dark text. target #111111; dark mode inverts to near-white. */
 .logo-img {
   display: block;
-  filter: none;
-  transition: filter 0.25s ease;
+  filter: brightness(1.4) saturate(0.4); /* darken to approx #111111 */
+  transition: filter 0.4s ease;
 }
 .dark .logo-img {
   filter: invert(1) brightness(1.025);
 }
-.logo-link {
+.logo-link, .logo-hover {
   position: relative;
   display: inline-block;
   overflow: hidden;
   border-radius: 7px;
 }
-/* Hover: AI power-up — flash → color glitch → settle orange */
-.logo-link:hover .logo-img {
-  animation: logo-activate 0.55s ease forwards;
+/* Hover: single flash → clean orange glow (simplified tech feel) */
+.logo-link:hover .logo-img,
+.logo-hover:hover .logo-img {
+  animation: logo-activate 0.5s ease forwards;
 }
 @keyframes logo-activate {
-  0%   { filter: none; }
-  7%   { filter: brightness(4) saturate(0); }
-  16%  { filter: brightness(0.3); }
-  26%  { filter: brightness(2.5) saturate(8) hue-rotate(200deg); }
-  36%  { filter: brightness(0.5); }
-  50%  { filter: brightness(2) saturate(5) hue-rotate(120deg); }
-  62%  { filter: none; }
-  100% { filter: sepia(1) saturate(8) hue-rotate(345deg) brightness(1.15)
-                 drop-shadow(0 0 10px rgba(255,79,0,0.7)); }
+  0%   { filter: brightness(1.4) saturate(0.4); }
+  20%  { filter: brightness(4) saturate(0); }
+  100% { filter: sepia(1) saturate(10) hue-rotate(345deg) brightness(1.1)
+                 drop-shadow(0 0 12px rgba(255,79,0,0.55)); }
 }
-.dark .logo-link:hover .logo-img {
-  animation: logo-activate-dark 0.55s ease forwards;
+.dark .logo-link:hover .logo-img,
+.dark .logo-hover:hover .logo-img {
+  animation: logo-activate-dark 0.5s ease forwards;
 }
 @keyframes logo-activate-dark {
   0%   { filter: invert(1) brightness(1.025); }
-  7%   { filter: brightness(4) saturate(0); }
-  16%  { filter: brightness(0.3); }
-  26%  { filter: brightness(2.5) saturate(8) hue-rotate(200deg); }
-  36%  { filter: brightness(0.5); }
-  50%  { filter: brightness(2) saturate(5) hue-rotate(120deg); }
-  62%  { filter: invert(1) brightness(1.025); }
-  100% { filter: sepia(1) saturate(8) hue-rotate(345deg) brightness(1.15)
-                 drop-shadow(0 0 10px rgba(255,79,0,0.7)); }
+  20%  { filter: brightness(4) saturate(0); }
+  100% { filter: sepia(1) saturate(10) hue-rotate(345deg) brightness(1.1)
+                 drop-shadow(0 0 12px rgba(255,79,0,0.55)); }
 }
-/* Double scan shimmer on hover */
-.logo-link::after {
+/* Single scan shimmer on hover */
+.logo-link::after, .logo-hover::after {
   content: '';
   position: absolute;
   top: -10%;
@@ -196,16 +188,16 @@
   background: linear-gradient(
     105deg,
     transparent 0%,
-    rgba(255,255,255,0.28) 44%,
-    rgba(255,255,255,0.45) 50%,
-    rgba(255,255,255,0.28) 56%,
+    rgba(255,255,255,0.22) 44%,
+    rgba(255,255,255,0.38) 50%,
+    rgba(255,255,255,0.22) 56%,
     transparent 100%
   );
   pointer-events: none;
   transform: skewX(-12deg);
 }
-.logo-link:hover::after {
-  animation: logo-scan 0.2s linear 0s 2 forwards;
+.logo-link:hover::after, .logo-hover:hover::after {
+  animation: logo-scan 0.28s linear 0.1s 1 forwards;
 }
 @keyframes logo-scan {
   from { left: -90%; }

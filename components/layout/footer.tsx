@@ -8,8 +8,8 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
-            <div className="inline-flex mb-4">
-              <Image src="/logo.png" alt="Arke" width={88} height={46} className="logo-img" />
+            <div className="logo-hover inline-flex mb-4">
+              <Image src="/logo.png" alt="Arke" width={120} height={62} className="logo-img" />
             </div>
             <p className="text-sm leading-relaxed" style={{ color: 'var(--muted-text)' }}>
               Global high-speed AI gateway. One key, 15+ models, zero rate limits on purchased quota.

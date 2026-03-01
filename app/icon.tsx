@@ -22,7 +22,7 @@ export default function Icon() {
           fontFamily: 'Space Grotesk',
           fontSize: 22,
           fontWeight: 700,
-          color: '#0d0a0b',
+          color: '#111111',
           letterSpacing: '-1px',
         }}
       >
