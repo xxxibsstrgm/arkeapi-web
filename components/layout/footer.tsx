@@ -27,17 +27,24 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="https://api.arkeapi.com" target="_blank" rel="noopener noreferrer"
+                <Link href="/dashboard/chat"
                   className="text-sm transition-colors hover:opacity-80"
                   style={{ color: 'var(--muted-text)' }}>
-                  Model Plaza
-                </a>
+                  AI Chat
+                </Link>
               </li>
               <li>
-                <a href="https://api.arkeapi.com" target="_blank" rel="noopener noreferrer"
+                <Link href="/dashboard"
                   className="text-sm transition-colors hover:opacity-80"
                   style={{ color: 'var(--muted-text)' }}>
                   Dashboard
+                </Link>
+              </li>
+              <li>
+                <a href="https://openclaw.ai" target="_blank" rel="noopener noreferrer"
+                  className="text-sm transition-colors hover:opacity-80"
+                  style={{ color: 'var(--muted-text)' }}>
+                  OpenClaw
                 </a>
               </li>
             </ul>
@@ -51,11 +58,11 @@ export function Footer() {
             </p>
             <ul className="space-y-3">
               <li>
-                <a href="https://api.arkeapi.com" target="_blank" rel="noopener noreferrer"
+                <Link href="/docs"
                   className="text-sm transition-colors hover:opacity-80"
                   style={{ color: 'var(--muted-text)' }}>
                   API Docs
-                </a>
+                </Link>
               </li>
               <li>
                 <a href="mailto:support@arkeapi.com"

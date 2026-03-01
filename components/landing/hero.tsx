@@ -93,21 +93,19 @@ export function Hero() {
 
             <div className="flex flex-wrap items-center gap-3 mb-14">
               <Link
-                href="#pricing"
+                href="/dashboard"
                 className="inline-flex items-center h-12 px-8 text-sm font-bold text-white rounded-full transition-opacity hover:opacity-88"
                 style={{ backgroundColor: '#FF4500', letterSpacing: '-0.005em' }}
               >
-                Get API Key
+                Get Started →
               </Link>
-              <a
-                href="https://api.arkeapi.com"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/docs"
                 className="inline-flex items-center h-12 px-7 text-sm font-medium rounded-full border transition-colors hover:opacity-70"
                 style={{ color: 'var(--foreground)', borderColor: 'var(--border)', backgroundColor: 'var(--surface)' }}
               >
                 View Docs →
-              </a>
+              </Link>
             </div>
 
             {/* Stats */}

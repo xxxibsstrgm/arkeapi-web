@@ -49,11 +49,11 @@ export function Navbar() {
               style={{ color: 'var(--foreground)' }}>
               Docs
             </Link>
-            <a href="https://api.arkeapi.com" target="_blank" rel="noopener noreferrer"
+            <Link href="/dashboard"
               className="text-sm font-medium transition-opacity hover:opacity-60"
               style={{ color: 'var(--foreground)' }}>
               Dashboard
-            </a>
+            </Link>
           </nav>
 
           <div className="relative">
@@ -90,10 +90,10 @@ export function Navbar() {
             {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
           </button>
 
-          <Link href="#pricing"
+          <Link href="/dashboard"
             className="h-9 px-5 rounded-full text-sm font-bold text-white inline-flex items-center transition-opacity hover:opacity-88 ml-2"
             style={{ backgroundColor: '#FF4500' }}>
-            Get API Key
+            Dashboard
           </Link>
         </div>
 
