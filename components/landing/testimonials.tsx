@@ -103,7 +103,7 @@ export function Testimonials() {
                       className="leading-snug"
                       style={{
                         fontSize: '0.9375rem',
-                        color: '#2A2A28',
+                        color: 'var(--foreground)',
                         fontFamily: 'var(--font-space-grotesk, sans-serif)',
                       }}
                     >
@@ -117,7 +117,7 @@ export function Testimonials() {
                       style={{
                         fontFamily: '"JetBrains Mono", "Fira Code", monospace',
                         fontSize: '0.6875rem',
-                        color: '#1A1A18',
+                        color: 'var(--foreground)',
                         letterSpacing: '0.04em',
                         lineHeight: 1.4,
                       }}
@@ -128,7 +128,7 @@ export function Testimonials() {
                       style={{
                         fontFamily: '"JetBrains Mono", "Fira Code", monospace',
                         fontSize: '0.6875rem',
-                        color: 'rgba(0,0,0,0.4)',
+                        color: 'var(--muted-text)',
                         letterSpacing: '0.04em',
                         marginTop: '0.2rem',
                       }}
