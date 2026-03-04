@@ -24,6 +24,8 @@ function Logo({ provider, color, size = 22 }: { provider: string; color: string;
     : provider === 'Flux' ? 'F' : provider === 'ByteDance' ? 'B'
     : provider === 'Ollama' ? 'O' : provider[0]
 
+  const isDark = color === '#111111' || color === '#1a1a1a' || color === '#000000'
+
   if (!path) {
     return (
       <span style={{
@@ -40,7 +42,9 @@ function Logo({ provider, color, size = 22 }: { provider: string; color: string;
     )
   }
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill={color} style={{ flexShrink: 0 }}>
+    <svg width={size} height={size} viewBox="0 0 24 24" fill={color}
+      className={isDark ? 'dark:invert' : ''}
+      style={{ flexShrink: 0 }}>
       <path d={path} />
     </svg>
   )
