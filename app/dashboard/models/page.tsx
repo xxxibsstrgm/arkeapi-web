@@ -145,7 +145,7 @@ function ModelsContent() {
   const [filterType, setFilterType] = useState<PricingType | 'All'>('All')
   const [filterNew, setFilterNew] = useState(false)
   const [search, setSearch] = useState('')
-  const [sortBy, setSortBy] = useState<'name' | 'input'>('name')
+  const [sort, setSort] = useState<'name' | 'price-asc' | 'price-desc'>('name')
 
   const { data } = useSWR(
     apiKey ? ['/api/dashboard/models', apiKey] : null,
@@ -169,10 +169,11 @@ function ModelsContent() {
         return true
       })
       .sort(([aId, a], [bId, b]) => {
-        if (sortBy === 'input') return (a.input ?? a.pricePerRequest ?? 0) - (b.input ?? b.pricePerRequest ?? 0)
+        if (sort === 'price-asc') return (a.input ?? a.pricePerRequest ?? 0) - (b.input ?? b.pricePerRequest ?? 0)
+        if (sort === 'price-desc') return (b.input ?? b.pricePerRequest ?? 0) - (a.input ?? a.pricePerRequest ?? 0)
         return aId.localeCompare(bId)
       })
-  }, [allEntries, filterProvider, filterCap, filterType, filterNew, search, sortBy])
+  }, [allEntries, filterProvider, filterCap, filterType, filterNew, search, sort])
 
   const tokenCount = allEntries.filter(([, m]) => m.pricingType === 'token').length
   const imageCount = allEntries.filter(([, m]) => m.pricingType !== 'token').length
@@ -208,17 +209,24 @@ function ModelsContent() {
           />
           <div className="flex items-center gap-1 ml-auto flex-wrap">
             <span className="text-xs mr-0.5" style={{ color: 'var(--muted-text)' }}>Sort:</span>
-            {(['name', 'input'] as const).map(key => (
-              <button key={key} onClick={() => setSortBy(key)}
-                className="h-8 px-2.5 rounded-lg text-xs font-medium transition-all"
-                style={{
-                  backgroundColor: sortBy === key ? 'var(--foreground)' : 'var(--surface)',
-                  color: sortBy === key ? 'var(--background)' : 'var(--muted-text)',
-                  border: `1px solid ${sortBy === key ? 'var(--foreground)' : 'var(--border)'}`,
-                }}>
-                {key === 'name' ? 'Name' : 'Price ↑'}
-              </button>
-            ))}
+            <button onClick={() => setSort('name')}
+              className="h-8 px-2.5 rounded-lg text-xs font-medium transition-all"
+              style={{
+                backgroundColor: sort === 'name' ? 'var(--foreground)' : 'var(--surface)',
+                color: sort === 'name' ? 'var(--background)' : 'var(--muted-text)',
+                border: `1px solid ${sort === 'name' ? 'var(--foreground)' : 'var(--border)'}`,
+              }}>
+              Name
+            </button>
+            <button onClick={() => setSort(s => s === 'price-asc' ? 'price-desc' : 'price-asc')}
+              className="h-8 px-2.5 rounded-lg text-xs font-medium transition-all"
+              style={{
+                backgroundColor: sort !== 'name' ? 'var(--foreground)' : 'var(--surface)',
+                color: sort !== 'name' ? 'var(--background)' : 'var(--muted-text)',
+                border: `1px solid ${sort !== 'name' ? 'var(--foreground)' : 'var(--border)'}`,
+              }}>
+              Price {sort === 'price-desc' ? '↓' : '↑'}
+            </button>
             <button onClick={() => setFilterNew(v => !v)}
               className="h-8 px-2.5 rounded-lg text-xs font-medium transition-all"
               style={{
