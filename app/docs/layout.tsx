@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { DOC_NAV } from '@/lib/docs-content'
+import { DocsNav } from '@/components/docs/docs-nav'
 
 export default function DocsLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -24,27 +24,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
           </Link>
         </div>
 
-        <nav className="px-3 py-4">
-          <p
-            className="px-3 mb-3 text-xs font-bold uppercase tracking-widest"
-            style={{ color: 'var(--muted-text)', letterSpacing: '0.1em' }}
-          >
-            Documentation
-          </p>
-          <ul className="space-y-0.5">
-            {DOC_NAV.map(({ slug, title }) => (
-              <li key={slug}>
-                <Link
-                  href={`/docs/${slug}`}
-                  className="block px-3 py-2 rounded-lg text-sm transition-colors hover:opacity-80"
-                  style={{ color: 'var(--muted-text)' }}
-                >
-                  {title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <DocsNav />
 
         <div className="mt-auto px-5 py-5 border-t" style={{ borderColor: 'var(--border)' }}>
           <a

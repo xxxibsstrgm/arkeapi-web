@@ -36,10 +36,11 @@ function UsageContent() {
     <div className="max-w-2xl mx-auto px-8 py-12">
       <div className="flex items-start justify-between mb-10">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-widest mb-1" style={{ color: 'var(--muted-text)', letterSpacing: '0.1em' }}>
+          <p className="text-xs font-bold uppercase mb-1"
+            style={{ color: '#FF4F00', letterSpacing: '0.12em', textShadow: '0 0 10px rgba(255,79,0,0.25)' }}>
             Usage & Quota
           </p>
-          <h1 className="text-2xl font-bold" style={{ letterSpacing: '-0.025em' }}>{name}</h1>
+          <h1 style={{ fontSize: '1.75rem', fontWeight: 400, letterSpacing: '-0.04em' }}>{name}</h1>
         </div>
         <button
           onClick={refreshUsage}
@@ -77,8 +78,8 @@ function UsageContent() {
             className="rounded-xl p-5 border"
             style={{ backgroundColor: 'var(--surface)', borderColor: 'var(--border)' }}
           >
-            <p className="text-xs font-medium uppercase tracking-wider mb-2" style={{ color: 'var(--muted-text)', letterSpacing: '0.06em' }}>{s.label}</p>
-            <p className="text-xl font-bold" style={{ color: s.color, letterSpacing: '-0.02em' }}>{s.value}</p>
+            <p className="text-xs font-semibold uppercase mb-2" style={{ color: 'var(--muted-text)', letterSpacing: '0.08em' }}>{s.label}</p>
+            <p className="text-2xl font-extrabold" style={{ color: s.color, letterSpacing: '-0.03em' }}>{s.value}</p>
           </div>
         ))}
       </div>

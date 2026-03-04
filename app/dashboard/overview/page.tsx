@@ -53,10 +53,11 @@ function OverviewContent() {
       {/* Header */}
       <div className="flex items-start justify-between mb-10">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-widest mb-1" style={{ color: 'var(--muted-text)', letterSpacing: '0.1em' }}>
+          <p className="text-xs font-bold uppercase mb-1"
+            style={{ color: '#FF4F00', letterSpacing: '0.12em', textShadow: '0 0 10px rgba(255,79,0,0.25)' }}>
             API Key
           </p>
-          <h1 className="text-2xl font-bold" style={{ letterSpacing: '-0.025em' }}>{name}</h1>
+          <h1 style={{ fontSize: '1.75rem', fontWeight: 400, letterSpacing: '-0.04em' }}>{name}</h1>
         </div>
         <button
           onClick={refreshUsage}
@@ -83,8 +84,8 @@ function OverviewContent() {
                 { label: 'Remaining',     value: fmt(total_available) },
               ].map(s => (
                 <div key={s.label}>
-                  <p className="text-xs font-medium mb-1 uppercase tracking-wider" style={{ color: 'var(--muted-text)', letterSpacing: '0.06em' }}>{s.label}</p>
-                  <p className="text-xl font-bold" style={{ letterSpacing: '-0.02em' }}>{s.value}</p>
+                  <p className="text-xs font-semibold uppercase mb-1" style={{ color: 'var(--muted-text)', letterSpacing: '0.08em' }}>{s.label}</p>
+                  <p className="text-2xl font-extrabold" style={{ letterSpacing: '-0.03em' }}>{s.value}</p>
                 </div>
               ))}
             </div>

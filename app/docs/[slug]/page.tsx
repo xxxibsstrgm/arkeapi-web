@@ -106,11 +106,11 @@ export default async function DocPage({ params }: Props) {
       <div className="flex-1 min-w-0 max-w-3xl">
         {/* Page header */}
         <div className="mb-10 pb-8 border-b" style={{ borderColor: 'var(--border)' }}>
-          <p className="text-xs font-semibold uppercase tracking-widest mb-3"
-            style={{ color: '#ff3d00', letterSpacing: '0.1em' }}>
+          <p className="text-xs font-bold uppercase mb-3"
+            style={{ color: '#FF4F00', letterSpacing: '0.12em', textShadow: '0 0 10px rgba(255,79,0,0.25)' }}>
             Documentation
           </p>
-          <h1 className="text-3xl font-bold mb-3" style={{ letterSpacing: '-0.025em' }}>
+          <h1 className="mb-3" style={{ fontSize: '2rem', fontWeight: 400, letterSpacing: '-0.04em' }}>
             {section.title}
           </h1>
           <p className="text-base" style={{ color: 'var(--muted-text)' }}>

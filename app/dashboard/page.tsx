@@ -2,7 +2,9 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { Zap, ArrowRight, Eye, EyeOff } from 'lucide-react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { ArrowRight, Eye, EyeOff } from 'lucide-react'
 import { useDashboard } from '@/lib/dashboard-context'
 
 export default function DashboardLoginPage() {
@@ -52,17 +54,17 @@ export default function DashboardLoginPage() {
     <div className="min-h-screen flex items-center justify-center px-6">
       <div className="w-full max-w-sm">
         {/* Logo */}
-        <div className="flex items-center gap-2.5 mb-10">
-          <div
-            className="w-9 h-9 rounded-xl flex items-center justify-center"
-            style={{ backgroundColor: '#ff3d00' }}
-          >
-            <Zap className="w-5 h-5 text-white" />
-          </div>
-          <span className="text-lg font-bold" style={{ letterSpacing: '-0.02em' }}>ArkeAPI</span>
+        <div className="mb-10">
+          <Link href="/" className="logo-link shrink-0">
+            <Image src="/logo.png" alt="Arke" width={88} height={46} className="logo-img" priority />
+          </Link>
         </div>
 
-        <h1 className="text-2xl font-bold mb-1.5" style={{ letterSpacing: '-0.025em' }}>
+        <p className="text-xs font-bold uppercase mb-3"
+          style={{ color: '#FF4F00', letterSpacing: '0.12em', textShadow: '0 0 10px rgba(255,79,0,0.25)' }}>
+          Dashboard
+        </p>
+        <h1 className="mb-2" style={{ fontSize: '1.75rem', fontWeight: 400, letterSpacing: '-0.04em' }}>
           Connect your API key
         </h1>
         <p className="text-sm mb-8" style={{ color: 'var(--muted-text)' }}>

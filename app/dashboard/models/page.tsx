@@ -182,11 +182,12 @@ function ModelsContent() {
 
       {/* Header */}
       <div className="mb-8">
-        <p className="text-xs font-semibold uppercase tracking-widest mb-1.5" style={{ color: 'var(--muted-text)', letterSpacing: '0.1em' }}>
+        <p className="text-xs font-bold uppercase mb-1.5"
+          style={{ color: '#FF4F00', letterSpacing: '0.12em', textShadow: '0 0 10px rgba(255,79,0,0.25)' }}>
           Model Marketplace
         </p>
         <div className="flex items-end gap-4 flex-wrap">
-          <h1 className="text-2xl font-bold" style={{ letterSpacing: '-0.025em' }}>
+          <h1 style={{ fontSize: '1.75rem', fontWeight: 400, letterSpacing: '-0.04em' }}>
             {allEntries.length} Models
           </h1>
           <p className="text-sm mb-0.5" style={{ color: 'var(--muted-text)' }}>
