@@ -8,7 +8,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
       {/* Left sidebar */}
       <aside
         className="fixed top-0 left-0 h-screen w-56 flex flex-col border-r overflow-y-auto z-30"
-        style={{ borderColor: 'var(--border)', backgroundColor: 'var(--background)' }}
+        style={{ borderColor: 'var(--border)' }}
       >
         {/* Logo */}
         <div className="px-5 py-4 border-b" style={{ borderColor: 'var(--border)' }}>

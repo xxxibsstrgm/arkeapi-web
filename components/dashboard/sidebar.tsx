@@ -30,7 +30,7 @@ export function DashboardSidebar() {
   return (
     <aside
       className="fixed top-0 left-0 h-screen w-60 flex flex-col z-40 border-r"
-      style={{ backgroundColor: 'var(--background)', borderColor: 'var(--border)' }}
+      style={{ borderColor: 'var(--border)' }}
     >
       {/* Logo */}
       <div className="px-5 py-4 border-b" style={{ borderColor: 'var(--border)' }}>

@@ -9,7 +9,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       <div className="min-h-screen flex">
         <DashboardSidebar />
         {/* Main content — offset by sidebar width */}
-        <main className="flex-1 ml-60 min-h-screen" style={{ backgroundColor: 'var(--background)' }}>
+        <main className="flex-1 ml-60 min-h-screen">
           {children}
         </main>
       </div>
