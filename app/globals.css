@@ -144,7 +144,7 @@
 /* PNG has transparent bg + dark text. target #111111; dark mode inverts to near-white. */
 .logo-img {
   display: block;
-  filter: brightness(1.4) saturate(0.4); /* darken to approx #111111 */
+  filter: brightness(0) saturate(1);
   transition: filter 0.4s ease;
 }
 .dark .logo-img {
@@ -162,10 +162,10 @@
   animation: logo-activate 0.45s ease forwards;
 }
 @keyframes logo-activate {
-  0%   { filter: brightness(1.4) saturate(0.4); }
+  0%   { filter: brightness(0) saturate(1); }
   18%  { filter: brightness(3.5) saturate(0); }
   48%  { filter: brightness(1.15) saturate(0) contrast(1.2); }
-  100% { filter: brightness(1.4) saturate(0.4); }
+  100% { filter: brightness(0) saturate(1); }
 }
 .dark .logo-link:hover .logo-img,
 .dark .logo-hover:hover .logo-img {
