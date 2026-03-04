@@ -1,6 +1,6 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { DOC_NAV } from '@/lib/docs-content'
-import { Zap } from 'lucide-react'
 
 export default function DocsLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -8,18 +8,19 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
       {/* Left sidebar */}
       <aside
         className="fixed top-0 left-0 h-screen w-56 flex flex-col border-r overflow-y-auto z-30"
-        style={{ borderColor: 'var(--border)', backgroundColor: 'var(--surface)' }}
+        style={{ borderColor: 'var(--border)', backgroundColor: 'var(--background)' }}
       >
         {/* Logo */}
-        <div className="px-5 py-5 border-b" style={{ borderColor: 'var(--border)' }}>
-          <Link href="/" className="flex items-center gap-2">
-            <div
-              className="w-7 h-7 rounded-md flex items-center justify-center"
-              style={{ backgroundColor: '#ff3d00' }}
-            >
-              <Zap className="w-4 h-4 text-white" />
-            </div>
-            <span className="text-sm font-bold">ArkeAPI</span>
+        <div className="px-5 py-4 border-b" style={{ borderColor: 'var(--border)' }}>
+          <Link href="/" className="logo-link shrink-0">
+            <Image
+              src="/logo.png"
+              alt="Arke"
+              width={88}
+              height={46}
+              className="logo-img"
+              priority
+            />
           </Link>
         </div>
 

@@ -1,15 +1,16 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname, useRouter } from 'next/navigation'
-import { LayoutGrid, Cpu, MessageSquare, BarChart2, LogOut, Zap } from 'lucide-react'
+import { LayoutGrid, Cpu, MessageSquare, BarChart2, LogOut } from 'lucide-react'
 import { useDashboard } from '@/lib/dashboard-context'
 
 const NAV = [
-  { href: '/dashboard/overview', label: 'Overview',  icon: LayoutGrid },
-  { href: '/dashboard/models',   label: 'Models',    icon: Cpu },
+  { href: '/dashboard/overview', label: 'Overview',   icon: LayoutGrid },
+  { href: '/dashboard/models',   label: 'Models',     icon: Cpu },
   { href: '/dashboard/chat',     label: 'Playground', icon: MessageSquare },
-  { href: '/dashboard/usage',    label: 'Usage',     icon: BarChart2 },
+  { href: '/dashboard/usage',    label: 'Usage',      icon: BarChart2 },
 ]
 
 export function DashboardSidebar() {
@@ -28,21 +29,20 @@ export function DashboardSidebar() {
 
   return (
     <aside
-      className="fixed top-0 left-0 h-screen w-60 flex flex-col z-40"
-      style={{ backgroundColor: '#111110', borderRight: '1px solid #1E1E1C' }}
+      className="fixed top-0 left-0 h-screen w-60 flex flex-col z-40 border-r"
+      style={{ backgroundColor: 'var(--background)', borderColor: 'var(--border)' }}
     >
       {/* Logo */}
-      <div className="px-5 py-5 border-b" style={{ borderColor: '#1E1E1C' }}>
-        <Link href="/" className="flex items-center gap-2 group">
-          <div
-            className="w-7 h-7 rounded-md flex items-center justify-center"
-            style={{ backgroundColor: '#FF4F00' }}
-          >
-            <Zap className="w-4 h-4 text-white" />
-          </div>
-          <span className="text-sm font-bold" style={{ color: 'rgba(255,255,255,0.9)' }}>
-            ArkeAPI
-          </span>
+      <div className="px-5 py-4 border-b" style={{ borderColor: 'var(--border)' }}>
+        <Link href="/" className="logo-link shrink-0">
+          <Image
+            src="/logo.png"
+            alt="Arke"
+            width={88}
+            height={46}
+            className="logo-img"
+            priority
+          />
         </Link>
       </div>
 
@@ -56,8 +56,8 @@ export function DashboardSidebar() {
               href={href}
               className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all"
               style={{
-                color: active ? 'rgba(255,255,255,0.92)' : 'rgba(255,255,255,0.42)',
-                backgroundColor: active ? 'rgba(255,255,255,0.08)' : 'transparent',
+                color: active ? 'var(--foreground)' : 'var(--muted-text)',
+                backgroundColor: active ? 'var(--surface-alt)' : 'transparent',
               }}
             >
               <Icon className="w-4 h-4 shrink-0" />
@@ -68,11 +68,11 @@ export function DashboardSidebar() {
       </nav>
 
       {/* Footer */}
-      <div className="px-3 py-4 border-t space-y-1" style={{ borderColor: '#1E1E1C' }}>
+      <div className="px-3 py-4 border-t space-y-1" style={{ borderColor: 'var(--border)' }}>
         {truncatedKey && (
           <div
             className="flex items-center gap-2.5 px-3 py-2 rounded-lg"
-            style={{ backgroundColor: 'rgba(255,255,255,0.04)' }}
+            style={{ backgroundColor: 'var(--surface)' }}
           >
             <div
               className="w-1.5 h-1.5 rounded-full shrink-0"
@@ -80,7 +80,7 @@ export function DashboardSidebar() {
             />
             <span
               className="text-xs font-mono truncate"
-              style={{ color: 'rgba(255,255,255,0.35)' }}
+              style={{ color: 'var(--muted-text)' }}
             >
               {truncatedKey}
             </span>
@@ -88,8 +88,10 @@ export function DashboardSidebar() {
         )}
         <button
           onClick={handleLogout}
-          className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all hover:bg-white/5"
-          style={{ color: 'rgba(255,255,255,0.35)' }}
+          className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all"
+          style={{ color: 'var(--muted-text)' }}
+          onMouseEnter={e => (e.currentTarget.style.backgroundColor = 'var(--surface)')}
+          onMouseLeave={e => (e.currentTarget.style.backgroundColor = 'transparent')}
         >
           <LogOut className="w-4 h-4 shrink-0" />
           Sign out
